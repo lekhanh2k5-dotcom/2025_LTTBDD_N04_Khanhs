@@ -27,67 +27,90 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(index: _currentIndex, children: _pages),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.deepPurple,
-        unselectedItemColor: Colors.grey.shade400,
-        backgroundColor: Colors.white,
-        elevation: 8,
-        selectedFontSize: 12,
-        unselectedFontSize: 11,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.menu_book,
-              color: _currentIndex == 0
-                  ? Colors.brown.shade600
-                  : Colors.grey.shade400,
-            ),
-            label: 'Sách',
+      bottomNavigationBar: Container(
+        height: 70, // Chiều cao menu (mặc định ~80px)
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.explore,
-              color: _currentIndex == 1
-                  ? Colors.orange.shade600
-                  : Colors.grey.shade400,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 10,
+              offset: Offset(0, -2),
             ),
-            label: 'Khám phá',
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.library_books,
-              color: _currentIndex == 2
-                  ? Colors.green.shade600
-                  : Colors.grey.shade400,
-            ),
-            label: 'Thư viện',
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: _currentIndex,
+            selectedItemColor: const Color(0xFF8D6E63),
+            unselectedItemColor: Colors.grey.shade400,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            selectedFontSize: 12,
+            unselectedFontSize: 11,
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.menu_book,
+                  color: _currentIndex == 0
+                      ? const Color(0xFF8D6E63)
+                      : Colors.grey.shade400,
+                ),
+                label: 'Sách',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.explore,
+                  color: _currentIndex == 1
+                      ? const Color(0xFF8D6E63)
+                      : Colors.grey.shade400,
+                ),
+                label: 'Khám phá',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.library_books,
+                  color: _currentIndex == 2
+                      ? const Color(0xFF8D6E63)
+                      : Colors.grey.shade400,
+                ),
+                label: 'Thư viện',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.emoji_events,
+                  color: _currentIndex == 3
+                      ? const Color(0xFF8D6E63)
+                      : Colors.grey.shade400,
+                ),
+                label: 'Thử thách',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.account_circle,
+                  color: _currentIndex == 4
+                      ? const Color(0xFF8D6E63)
+                      : Colors.grey.shade400,
+                ),
+                label: 'Tài khoản',
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.emoji_events,
-              color: _currentIndex == 3
-                  ? Colors.amber.shade600
-                  : Colors.grey.shade400,
-            ),
-            label: 'Thử thách',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle,
-              color: _currentIndex == 4
-                  ? Colors.blue.shade600
-                  : Colors.grey.shade400,
-            ),
-            label: 'Tài khoản',
-          ),
-        ],
+        ),
       ),
     );
   }
