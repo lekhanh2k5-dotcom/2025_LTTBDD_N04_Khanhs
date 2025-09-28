@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data/models/book.dart';
+import '../ui/features/book/pages/book_detail_page.dart';
 
 enum CardType { grid, list }
 
@@ -32,7 +33,7 @@ class BookCard extends StatelessWidget {
     final cardWidth = width ?? 120.0;
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () => _navigateToBookDetail(context),
       child: Container(
         width: cardWidth,
         margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
@@ -55,9 +56,12 @@ class BookCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: _buildCoverImage(),
+                    child: Hero(
+                      tag: 'book_cover_${book.id}',
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: _buildCoverImage(),
+                      ),
                     ),
                   ),
                 ),
@@ -128,7 +132,7 @@ class BookCard extends StatelessWidget {
 
   Widget _buildListCard(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () => _navigateToBookDetail(context),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
         padding: const EdgeInsets.all(12.0),
@@ -152,9 +156,12 @@ class BookCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6.0),
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(6.0),
-                child: _buildCoverImage(),
+              child: Hero(
+                tag: 'book_cover_${book.id}',
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(6.0),
+                  child: _buildCoverImage(),
+                ),
               ),
             ),
 
@@ -301,6 +308,13 @@ class BookCard extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
+    );
+  }
+
+  void _navigateToBookDetail(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => BookDetailPage(book: book)),
     );
   }
 }

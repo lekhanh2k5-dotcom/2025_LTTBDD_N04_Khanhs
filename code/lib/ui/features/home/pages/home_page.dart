@@ -113,10 +113,6 @@ class HomePage extends StatelessWidget {
                 book: featuredBooks[index],
                 type: CardType.grid,
                 width: 140,
-                onTap: () {
-                  // Navigate to book detail
-                  print('Tapped book: ${featuredBooks[index].title}');
-                },
                 onFavorite: () {
                   // Handle favorite
                   print('Favorite: ${featuredBooks[index].title}');
@@ -147,9 +143,6 @@ class HomePage extends StatelessWidget {
                 book: recentBooks[index],
                 type: CardType.grid,
                 width: 140,
-                onTap: () {
-                  print('Tapped recent book: ${recentBooks[index].title}');
-                },
                 onFavorite: () {
                   print('Favorite: ${recentBooks[index].title}');
                 },
