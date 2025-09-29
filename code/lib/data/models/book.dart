@@ -55,8 +55,7 @@ final List<BookModel> sampleBooks = [
     categoryId: 'cat1', // Văn học kinh điển
     description:
         'Câu chuyện cảm động về Zezé, một cậu bé tinh nghịch có trí tưởng tượng bay bổng và tình bạn đặc biệt với cây cam trong vườn.',
-    pdfAssetPath:
-        'assets/pdfs/Cay Cam Ngot Cua Toi - Jose Mauro de Vasconcelos.pdf',
+    pdfAssetPath: 'assets/pdfs/sample.pdf',
     isFeatured: true,
   ),
   BookModel(
@@ -67,7 +66,7 @@ final List<BookModel> sampleBooks = [
     categoryId: 'cat1', // Văn học kinh điển
     description:
         'Một câu chuyện đầy cảm hứng về nghị lực phi thường của những đứa trẻ nghèo trên hòn đảo Belitong trong hành trình đi tìm con chữ.',
-    pdfAssetPath: 'assets/pdfs/Chien Binh Cau Vong - Andrea Hirata.pdf',
+    pdfAssetPath: 'assets/pdfs/sample.pdf',
     isFeatured: true,
   ),
   BookModel(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
 import '../../../../widgets/book_card.dart';
+import 'pdf_reader_page.dart';
 
 class BookDetailPage extends StatefulWidget {
   final BookModel book;
@@ -213,7 +214,12 @@ class _BookDetailPageState extends State<BookDetailPage> {
               child: ElevatedButton(
                 onPressed: () {
                   // Navigate to PDF reader
-                  print('Start reading: ${widget.book.title}');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PdfReaderPage(book: widget.book),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
