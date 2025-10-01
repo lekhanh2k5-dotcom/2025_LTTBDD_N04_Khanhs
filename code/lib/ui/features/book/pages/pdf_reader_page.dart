@@ -17,6 +17,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
   int _currentPageNumber = 1;
   int _totalPages = 0;
   bool _isFullscreen = false;
+  bool _isLoading = true;
 
   @override
   void initState() {
@@ -117,28 +118,66 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
       );
     }
 
-    return SfPdfViewer.asset(
-      widget.book.pdfAssetPath,
-      key: _pdfViewerKey,
-      controller: _pdfViewerController,
-      onDocumentLoaded: (PdfDocumentLoadedDetails details) {
-        setState(() {
-          _totalPages = details.document.pages.count;
-        });
-      },
-      onPageChanged: (PdfPageChangedDetails details) {
-        setState(() {
-          _currentPageNumber = details.newPageNumber;
-        });
-      },
-      onDocumentLoadFailed: (PdfDocumentLoadFailedDetails details) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Không thể tải file PDF: ${details.error}'),
-            backgroundColor: Colors.red,
+    // Debug: In ra đường dẫn PDF để kiểm tra
+    print('Đang tải PDF: ${widget.book.pdfAssetPath}');
+
+    return Stack(
+      children: [
+        SfPdfViewer.asset(
+          widget.book.pdfAssetPath,
+          key: _pdfViewerKey,
+          controller: _pdfViewerController,
+          onDocumentLoaded: (PdfDocumentLoadedDetails details) {
+            print(
+              'PDF đã load thành công: ${details.document.pages.count} trang',
+            );
+            setState(() {
+              _totalPages = details.document.pages.count;
+              _isLoading = false;
+            });
+          },
+          onPageChanged: (PdfPageChangedDetails details) {
+            setState(() {
+              _currentPageNumber = details.newPageNumber;
+            });
+          },
+          onDocumentLoadFailed: (PdfDocumentLoadFailedDetails details) {
+            print('Lỗi load PDF: ${details.error}');
+            print('Đường dẫn: ${widget.book.pdfAssetPath}');
+            setState(() {
+              _isLoading = false;
+            });
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Không thể tải file PDF: ${details.error}'),
+                backgroundColor: Colors.red,
+                duration: const Duration(seconds: 5),
+              ),
+            );
+          },
+        ),
+        if (_isLoading)
+          Container(
+            color: Colors.white,
+            child: const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Color(0xFF8D6E63),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Đang tải file PDF...',
+                    style: TextStyle(fontSize: 16, color: Color(0xFF8D6E63)),
+                  ),
+                ],
+              ),
+            ),
           ),
-        );
-      },
+      ],
     );
   }
 

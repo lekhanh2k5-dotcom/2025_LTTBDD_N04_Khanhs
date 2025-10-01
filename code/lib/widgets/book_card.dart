@@ -11,6 +11,7 @@ class BookCard extends StatelessWidget {
   final VoidCallback? onTap;
   final VoidCallback? onFavorite;
   final double? width;
+  final String? heroContext; // Thêm context để tránh Hero tag duplicate
 
   const BookCard({
     Key? key,
@@ -20,6 +21,7 @@ class BookCard extends StatelessWidget {
     this.onTap,
     this.onFavorite,
     this.width,
+    this.heroContext,
   }) : super(key: key);
 
   @override
@@ -56,12 +58,9 @@ class BookCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Hero(
-                      tag: 'book_cover_${book.id}',
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: _buildCoverImage(),
-                      ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: _buildCoverImage(),
                     ),
                   ),
                 ),
@@ -157,7 +156,8 @@ class BookCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6.0),
               ),
               child: Hero(
-                tag: 'book_cover_${book.id}',
+                tag:
+                    'book_cover_${book.id}_${heroContext ?? 'main'}_${DateTime.now().millisecondsSinceEpoch}',
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(6.0),
                   child: _buildCoverImage(),
@@ -314,7 +314,10 @@ class BookCard extends StatelessWidget {
   void _navigateToBookDetail(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => BookDetailPage(book: book)),
+      MaterialPageRoute(
+        builder: (context) =>
+            BookDetailPage(book: book, heroContext: heroContext),
+      ),
     );
   }
 }

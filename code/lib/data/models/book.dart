@@ -7,13 +7,13 @@ class BookModel {
   final String coverImageUrl; // URL hoặc đường dẫn asset
   final String categoryId; // Để liên kết với CategoryModel
   final String description;
-  final double rating; // Ví dụ: 4.5
+  final double rating;
   final int pageCount;
   final String publisher;
   final String publishDate;
   final String language;
-  final String pdfAssetPath; // Đường dẫn đến file PDF trong assets (nếu có)
-  final bool isFeatured; // Sách này có nổi bật không?
+  final String pdfAssetPath; // Đường dẫn đến file PDF
+  final bool isFeatured; // Sách này nổi bật
 
   BookModel({
     required this.id,
@@ -32,8 +32,7 @@ class BookModel {
   });
 }
 
-// Dữ liệu sách mẫu - Sau này sẽ chuyển vào datasource hoặc API
-// Chúng ta sẽ thêm sách vào đây sau khi có ảnh bìa và thông tin chi tiết hơn
+// Dữ liệu sách mẫu
 final List<BookModel> sampleBooks = [
   BookModel(
     id: 'book1',
@@ -44,7 +43,7 @@ final List<BookModel> sampleBooks = [
     categoryId: 'cat4', // Kỹ năng
     description:
         'Cuốn sách dành cho những ai đang ở ngưỡng cửa tuổi 20, đầy những trăn trở và định hướng cho tương lai.',
-    pdfAssetPath: 'assets/pdfs/sample.pdf', // Giả sử đây là file PDF tương ứng
+    pdfAssetPath: 'assets/pdfs/thep_da_toi_the_day.pdf',
     isFeatured: true,
   ),
   BookModel(
@@ -55,7 +54,8 @@ final List<BookModel> sampleBooks = [
     categoryId: 'cat1', // Văn học kinh điển
     description:
         'Câu chuyện cảm động về Zezé, một cậu bé tinh nghịch có trí tưởng tượng bay bổng và tình bạn đặc biệt với cây cam trong vườn.',
-    pdfAssetPath: 'assets/pdfs/sample.pdf',
+    pdfAssetPath:
+        'assets/pdfs/Cay Cam Ngot Cua Toi - Jose Mauro de Vasconcelos.pdf',
     isFeatured: true,
   ),
   BookModel(
@@ -66,7 +66,7 @@ final List<BookModel> sampleBooks = [
     categoryId: 'cat1', // Văn học kinh điển
     description:
         'Một câu chuyện đầy cảm hứng về nghị lực phi thường của những đứa trẻ nghèo trên hòn đảo Belitong trong hành trình đi tìm con chữ.',
-    pdfAssetPath: 'assets/pdfs/sample.pdf',
+    pdfAssetPath: 'assets/pdfs/Chien Binh Cau Vong - Andrea Hirata.pdf',
     isFeatured: true,
   ),
   BookModel(
@@ -225,7 +225,8 @@ final List<BookModel> sampleBooks = [
     categoryId: 'cat1',
     description:
         'Tổng hợp các trận chiến vĩ đại trong lịch sử nhân loại, phân tích chiến lược và tác động của chúng đến cục diện thế giới.',
-    pdfAssetPath: 'assets/pdfs/Nhung Tran Hai Chien Noi Tieng The Gioi.pdf',
+    pdfAssetPath:
+        'assets/pdfs/Nhung Tran Hai Chien Noi Tieng The Gioi - Nhieu Tac Gia.pdf',
     isFeatured: false,
   ),
   BookModel(

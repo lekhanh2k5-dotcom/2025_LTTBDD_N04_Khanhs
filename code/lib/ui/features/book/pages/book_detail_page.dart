@@ -6,8 +6,10 @@ import 'pdf_reader_page.dart';
 
 class BookDetailPage extends StatefulWidget {
   final BookModel book;
+  final String? heroContext;
 
-  const BookDetailPage({Key? key, required this.book}) : super(key: key);
+  const BookDetailPage({Key? key, required this.book, this.heroContext})
+    : super(key: key);
 
   @override
   State<BookDetailPage> createState() => _BookDetailPageState();
@@ -43,7 +45,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
     return AppBar(
       backgroundColor: const Color(0xFF8D6E63),
       elevation: 0,
-      titleSpacing: 0, // Giảm spacing để có thêm không gian cho title
+      titleSpacing: 0,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back, color: Colors.white),
         onPressed: () => Navigator.pop(context),
@@ -82,7 +84,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Hero(
-        tag: 'book_cover_${widget.book.id}',
+        tag: 'book_cover_${widget.book.id}_${widget.heroContext ?? 'main'}',
         child: Container(
           width: 200,
           height: 280,
@@ -487,13 +489,16 @@ class _BookDetailPageState extends State<BookDetailPage> {
                 book: relatedBooks[index],
                 type: CardType.grid,
                 width: 140,
-                showCategory: false, // Tắt category để giảm height
+                heroContext: 'related',
+                showCategory: false,
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          BookDetailPage(book: relatedBooks[index]),
+                      builder: (context) => BookDetailPage(
+                        book: relatedBooks[index],
+                        heroContext: 'related',
+                      ),
                     ),
                   );
                 },

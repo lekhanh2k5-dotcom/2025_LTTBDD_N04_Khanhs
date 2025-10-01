@@ -113,6 +113,7 @@ class HomePage extends StatelessWidget {
                 book: featuredBooks[index],
                 type: CardType.grid,
                 width: 140,
+                heroContext: 'featured',
                 onFavorite: () {
                   // Handle favorite
                   print('Favorite: ${featuredBooks[index].title}');
@@ -143,6 +144,7 @@ class HomePage extends StatelessWidget {
                 book: recentBooks[index],
                 type: CardType.grid,
                 width: 140,
+                heroContext: 'recent',
                 onFavorite: () {
                   print('Favorite: ${recentBooks[index].title}');
                 },
