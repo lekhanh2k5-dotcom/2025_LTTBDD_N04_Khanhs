@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../widgets/book_card.dart';
+import '../../../../data/models/review.dart';
+import '../../../../widgets/review_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,6 +21,7 @@ class HomePage extends StatelessWidget {
                   _buildWelcomeMessage(),
                   _buildFeaturedBooks(),
                   _buildRecentReading(),
+                  _buildFeaturedReviews(),
                   const SizedBox(height: 20),
                 ],
               ),
@@ -185,6 +188,31 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildFeaturedReviews() {
+    return Column(
+      children: [
+        _buildSectionHeader('📝 Đánh Giá Nổi Bật', 'Xem thêm'),
+        const SizedBox(height: 16),
+        SizedBox(
+          height: 380,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemCount: sampleReviews.length,
+            itemBuilder: (context, index) {
+              return ReviewCard(
+                review: sampleReviews[index],
+                onTap: () {
+                  print('Review tapped: ${sampleReviews[index].bookTitle}');
+                },
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
