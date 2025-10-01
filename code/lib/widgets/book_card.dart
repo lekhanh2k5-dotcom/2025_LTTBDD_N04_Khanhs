@@ -301,7 +301,7 @@ class BookCard extends StatelessWidget {
         ),
       ),
       child: Text(
-        book.categoryId, // Sẽ cần mapping sau để hiển thị tên category
+        book.categoryId,
         style: const TextStyle(
           fontSize: 10,
           color: Color(0xFF8D6E63),

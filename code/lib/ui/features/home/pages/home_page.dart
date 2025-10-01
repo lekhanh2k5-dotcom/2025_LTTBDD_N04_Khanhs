@@ -197,7 +197,7 @@ class HomePage extends StatelessWidget {
         _buildSectionHeader('📝 Đánh Giá Nổi Bật', 'Xem thêm'),
         const SizedBox(height: 16),
         SizedBox(
-          height: 380,
+          height: 400,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),

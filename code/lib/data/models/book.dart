@@ -4,16 +4,16 @@ class BookModel {
   final String id;
   final String title;
   final String author;
-  final String coverImageUrl; // URL hoặc đường dẫn asset
-  final String categoryId; // Để liên kết với CategoryModel
+  final String coverImageUrl;
+  final String categoryId;
   final String description;
   final double rating;
   final int pageCount;
   final String publisher;
   final String publishDate;
   final String language;
-  final String pdfAssetPath; // Đường dẫn đến file PDF
-  final bool isFeatured; // Sách này nổi bật
+  final String pdfAssetPath;
+  final bool isFeatured;
 
   BookModel({
     required this.id,
