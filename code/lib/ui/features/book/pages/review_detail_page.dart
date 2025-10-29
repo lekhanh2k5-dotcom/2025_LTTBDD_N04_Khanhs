@@ -10,7 +10,6 @@ class ReviewDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Tìm sách tương ứng với review
     final book = sampleBooks.firstWhere(
       (b) => b.id == review.bookId,
       orElse: () => sampleBooks.first,
@@ -128,7 +127,7 @@ class ReviewDetailPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            review.title, // ← Sử dụng title từ review model
+            review.title,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,

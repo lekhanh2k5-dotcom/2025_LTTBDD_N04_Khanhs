@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: IndexedStack(index: _currentIndex, children: _pages),
       bottomNavigationBar: Container(
-        height: 70, // Chiều cao menu (mặc định ~80px)
+        height: 70,
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(

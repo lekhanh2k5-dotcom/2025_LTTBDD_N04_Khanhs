@@ -170,7 +170,6 @@ class _ReviewCardState extends State<ReviewCard> {
   }
 
   Widget _buildBookInfo() {
-    // Tìm book từ bookId trong review
     final book = sampleBooks.firstWhere(
       (b) => b.id == widget.review.bookId,
       orElse: () => sampleBooks.first,
@@ -178,7 +177,6 @@ class _ReviewCardState extends State<ReviewCard> {
 
     return GestureDetector(
       onTap: () {
-        // Navigate to BookDetailPage khi tap vào thông tin sách
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => BookDetailPage(book: book)),

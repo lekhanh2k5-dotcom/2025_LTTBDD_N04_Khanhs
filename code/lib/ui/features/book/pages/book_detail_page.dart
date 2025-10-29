@@ -479,7 +479,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
           ),
         ),
         Container(
-          height: 280, // Tăng height để tránh overflow
+          height: 280,
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
