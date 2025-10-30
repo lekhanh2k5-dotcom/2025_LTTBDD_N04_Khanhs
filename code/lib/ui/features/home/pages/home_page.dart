@@ -4,6 +4,9 @@ import '../../../../widgets/book_card.dart';
 import '../../../../data/models/review.dart';
 import '../../../../widgets/review_card.dart';
 import '../../../../data/models/category.dart';
+import '../../category/pages/category_detail_page.dart';
+import '../../category/pages/categories_page.dart';
+import '../../book/pages/featured_books_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,7 +23,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   _buildWelcomeMessage(),
-                  _buildFeaturedBooks(),
+                  _buildFeaturedBooks(context),
                   _buildCategoriesBrowser(),
                   _buildDynamicCategorySections(),
                   _buildRecentReading(),
@@ -102,12 +105,22 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildFeaturedBooks() {
+  Widget _buildFeaturedBooks(BuildContext context) {
     final featuredBooks = sampleBooks.where((book) => book.isFeatured).toList();
-
     return Column(
       children: [
-        _buildSectionHeader('⭐ Sách nổi bật', 'Xem thêm'),
+        _buildSectionHeader(
+          '⭐ Sách nổi bật',
+          'Xem thêm',
+          onActionTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const FeaturedBooksPage(),
+              ),
+            );
+          },
+        ),
         Container(
           height: 280,
           padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -121,7 +134,6 @@ class HomePage extends StatelessWidget {
                 width: 140,
                 heroContext: 'featured',
                 onFavorite: () {
-                  // Handle favorite
                   print('Favorite: ${featuredBooks[index].title}');
                 },
               );
@@ -161,7 +173,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionHeader(String title, String actionText) {
+  Widget _buildSectionHeader(
+    String title,
+    String actionText, {
+    VoidCallback? onActionTap,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
@@ -176,9 +192,11 @@ class HomePage extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              print('Tapped $actionText for $title');
-            },
+            onTap:
+                onActionTap ??
+                () {
+                  print('Tapped $actionText for $title');
+                },
             child: Text(
               actionText,
               style: const TextStyle(
@@ -194,6 +212,8 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildCategoryHeader({
+    required BuildContext context,
+    required String categoryId,
     required String icon,
     required String name,
     required int count,
@@ -236,7 +256,13 @@ class HomePage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              print('Xem thêm: $name');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      CategoryDetailPage(categoryId: categoryId),
+                ),
+              );
             },
             child: const Text(
               'Xem thêm',
@@ -278,102 +304,121 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildCategoriesBrowser() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildSectionHeader('📚 Danh Mục', 'Xem tất cả'),
-        SizedBox(
-          height: 120,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            itemCount: sampleCategories.length,
-            itemBuilder: (context, index) {
-              final category = sampleCategories[index];
-              final bookCount = sampleBooks
-                  .where((book) => book.categoryId == category.id)
-                  .length;
-              return GestureDetector(
-                onTap: () {
-                  print('Category tapped: ${category.name}');
-                },
-                child: Container(
-                  width: 140,
-                  margin: const EdgeInsets.symmetric(horizontal: 6),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        category.gradientColor1,
-                        category.gradientColor2,
-                      ],
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: [
-                      BoxShadow(
-                        color: category.gradientColor1.withOpacity(0.4),
-                        blurRadius: 8,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          category.icon,
-                          style: const TextStyle(fontSize: 28),
-                        ),
-                        const SizedBox(height: 4),
-                        Expanded(
-                          child: Text(
-                            category.name,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              height: 1.2,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        Text(
-                          '$bookCount sách',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.white.withOpacity(0.9),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+    return Builder(
+      builder: (context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildSectionHeader(
+            '📚 Danh Mục',
+            'Xem tất cả',
+            onActionTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CategoriesPage()),
               );
             },
           ),
-        ),
-        const SizedBox(height: 8),
-      ],
+          SizedBox(
+            height: 120,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              itemCount: sampleCategories.length,
+              itemBuilder: (context, index) {
+                final category = sampleCategories[index];
+                final bookCount = sampleBooks
+                    .where((book) => book.categoryId == category.id)
+                    .length;
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            CategoryDetailPage(categoryId: category.id),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    width: 140,
+                    margin: const EdgeInsets.symmetric(horizontal: 6),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          category.gradientColor1,
+                          category.gradientColor2,
+                        ],
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: category.gradientColor1.withOpacity(0.4),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            category.icon,
+                            style: const TextStyle(fontSize: 28),
+                          ),
+                          const SizedBox(height: 4),
+                          Expanded(
+                            child: Text(
+                              category.name,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                height: 1.2,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Text(
+                            '$bookCount sách',
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white.withOpacity(0.9),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildDynamicCategorySections() {
     final allCategories = sampleCategories;
 
-    return Column(
-      children: allCategories.map((category) {
-        return _buildCategorySection(category.id);
-      }).toList(),
+    return Builder(
+      builder: (context) {
+        return Column(
+          children: allCategories.map((category) {
+            return _buildCategorySection(context, category.id);
+          }).toList(),
+        );
+      },
     );
   }
 
-  Widget _buildCategorySection(String categoryId) {
+  Widget _buildCategorySection(BuildContext context, String categoryId) {
     final category = sampleCategories.firstWhere(
       (cat) => cat.id == categoryId,
       orElse: () => sampleCategories.first,
@@ -394,6 +439,8 @@ class HomePage extends StatelessWidget {
     return Column(
       children: [
         _buildCategoryHeader(
+          context: context,
+          categoryId: categoryId,
           icon: category.icon,
           name: category.name,
           count: totalBookCount,
