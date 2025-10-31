@@ -151,7 +151,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
       ),
     ];
 
-    // Chia thành 2 hàng
     final halfLength = (allCategories.length / 2).ceil();
     final firstRow = allCategories.sublist(0, halfLength);
     final secondRow = allCategories.sublist(halfLength);
