@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
+import '../../../../services/favorites_manager.dart';
 import '../../../../widgets/book_card.dart';
 import 'pdf_reader_page.dart';
 
@@ -16,8 +17,15 @@ class BookDetailPage extends StatefulWidget {
 }
 
 class _BookDetailPageState extends State<BookDetailPage> {
-  bool isFavorite = false;
+  final FavoritesManager _favoritesManager = FavoritesManager();
   bool isDescriptionExpanded = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  bool get isFavorite => _favoritesManager.isFavorite(widget.book.id);
 
   @override
   Widget build(BuildContext context) {
@@ -187,9 +195,18 @@ class _BookDetailPageState extends State<BookDetailPage> {
                 size: 24,
               ),
               onPressed: () {
-                setState(() {
-                  isFavorite = !isFavorite;
-                });
+                _favoritesManager.toggleFavorite(widget.book.id);
+                setState(() {});
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      isFavorite
+                          ? 'Đã thêm "${widget.book.title}" vào yêu thích'
+                          : 'Đã xóa "${widget.book.title}" khỏi yêu thích',
+                    ),
+                    duration: const Duration(seconds: 1),
+                  ),
+                );
               },
             ),
           ),
@@ -450,7 +467,6 @@ class _BookDetailPageState extends State<BookDetailPage> {
   }
 
   Widget _buildRelatedBooksSection() {
-    // Get related books from same category
     final relatedBooks = sampleBooks
         .where(
           (book) =>

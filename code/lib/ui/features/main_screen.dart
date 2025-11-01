@@ -15,18 +15,29 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [
-    const HomePage(),
-    const DiscoverPage(),
-    const LibraryPage(),
-    const ChallengePage(),
-    const ProfilePage(),
-  ];
+  Widget _buildPage(int index) {
+    switch (index) {
+      case 0:
+        return const HomePage();
+      case 1:
+        return const DiscoverPage();
+      case 2:
+        return LibraryPage(
+          key: ValueKey(_currentIndex),
+        ); // Rebuild khi quay lại
+      case 3:
+        return const ChallengePage();
+      case 4:
+        return const ProfilePage();
+      default:
+        return const HomePage();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: _currentIndex, children: _pages),
+      body: _buildPage(_currentIndex),
       bottomNavigationBar: Container(
         height: 70,
         decoration: const BoxDecoration(

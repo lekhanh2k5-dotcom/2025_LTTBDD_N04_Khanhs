@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
+import '../../../../services/favorites_manager.dart';
 import '../../../../widgets/book_card.dart';
 import '../../book/pages/pdf_reader_page.dart';
 
@@ -25,8 +26,9 @@ class LibraryPage extends StatefulWidget {
 class _LibraryPageState extends State<LibraryPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  final FavoritesManager _favoritesManager = FavoritesManager();
 
-  final List<String> _favoriteBookIds = ['book2', 'book5', 'book8', 'book15'];
+  List<String> get _favoriteBookIds => _favoritesManager.getFavorites();
 
   final List<BookmarkModel> _bookmarks = [
     BookmarkModel(
@@ -56,10 +58,18 @@ class _LibraryPageState extends State<LibraryPage>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(_onTabChanged);
+  }
+
+  void _onTabChanged() {
+    if (_tabController.indexIsChanging) {
+      setState(() {});
+    }
   }
 
   @override
   void dispose() {
+    _tabController.removeListener(_onTabChanged);
     _tabController.dispose();
     super.dispose();
   }
@@ -75,7 +85,10 @@ class _LibraryPageState extends State<LibraryPage>
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              children: [_buildFavoritesTab(), _buildBookmarksTab()],
+              children: [
+                Builder(builder: (context) => _buildFavoritesTab()),
+                _buildBookmarksTab(),
+              ],
             ),
           ),
         ],
@@ -202,9 +215,8 @@ class _LibraryPageState extends State<LibraryPage>
           heroContext: 'library_favorite',
           onFavorite: () {
             final bookTitle = book.title;
-            setState(() {
-              _favoriteBookIds.remove(book.id);
-            });
+            _favoritesManager.removeFavorite(book.id);
+            setState(() {});
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text('Đã xóa "$bookTitle" khỏi yêu thích'),
