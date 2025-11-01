@@ -1,20 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../services/favorites_manager.dart';
+import '../../../../services/bookmarks_manager.dart';
 import '../../../../widgets/book_card.dart';
 import '../../book/pages/pdf_reader_page.dart';
-
-class BookmarkModel {
-  final String bookId;
-  final int pageNumber;
-  final DateTime createdAt;
-
-  BookmarkModel({
-    required this.bookId,
-    required this.pageNumber,
-    required this.createdAt,
-  });
-}
 
 class LibraryPage extends StatefulWidget {
   const LibraryPage({super.key});
@@ -27,26 +16,10 @@ class _LibraryPageState extends State<LibraryPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final FavoritesManager _favoritesManager = FavoritesManager();
+  final BookmarksManager _bookmarksManager = BookmarksManager();
 
   List<String> get _favoriteBookIds => _favoritesManager.getFavorites();
-
-  final List<BookmarkModel> _bookmarks = [
-    BookmarkModel(
-      bookId: 'book2',
-      pageNumber: 45,
-      createdAt: DateTime.now().subtract(const Duration(hours: 2)),
-    ),
-    BookmarkModel(
-      bookId: 'book5',
-      pageNumber: 120,
-      createdAt: DateTime.now().subtract(const Duration(days: 1)),
-    ),
-    BookmarkModel(
-      bookId: 'book8',
-      pageNumber: 78,
-      createdAt: DateTime.now().subtract(const Duration(days: 3)),
-    ),
-  ];
+  List<BookmarkModel> get _bookmarks => _bookmarksManager.getAllBookmarks();
 
   List<BookModel> get _favoriteBooks {
     return sampleBooks
@@ -324,45 +297,34 @@ class _LibraryPageState extends State<LibraryPage>
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF8D6E63).withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.bookmark,
+                              size: 14,
+                              color: Color(0xFF8D6E63),
                             ),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF8D6E63).withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(6),
+                            const SizedBox(width: 4),
+                            Text(
+                              'Trang ${bookmark.pageNumber}',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Color(0xFF8D6E63),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.bookmark,
-                                  size: 14,
-                                  color: Color(0xFF8D6E63),
-                                ),
-                                const SizedBox(width: 4),
-                                Text(
-                                  'Trang ${bookmark.pageNumber}',
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: Color(0xFF8D6E63),
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            _formatTime(bookmark.createdAt),
-                            style: TextStyle(
-                              fontSize: 11,
-                              color: Colors.grey[500],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -371,13 +333,13 @@ class _LibraryPageState extends State<LibraryPage>
                 IconButton(
                   icon: const Icon(Icons.close, color: Colors.grey),
                   onPressed: () {
-                    setState(() {
-                      _bookmarks.remove(bookmark);
-                    });
+                    final bookTitle = book.title;
+                    _bookmarksManager.removeBookmark(bookmark.bookId);
+                    setState(() {});
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Đã xóa bookmark'),
-                        duration: Duration(seconds: 2),
+                      SnackBar(
+                        content: Text('Đã xóa bookmark "$bookTitle"'),
+                        duration: const Duration(seconds: 2),
                       ),
                     );
                   },
@@ -421,20 +383,5 @@ class _LibraryPageState extends State<LibraryPage>
         ),
       ),
     );
-  }
-
-  String _formatTime(DateTime time) {
-    final now = DateTime.now();
-    final difference = now.difference(time);
-
-    if (difference.inMinutes < 60) {
-      return '${difference.inMinutes} phút trước';
-    } else if (difference.inHours < 24) {
-      return '${difference.inHours} giờ trước';
-    } else if (difference.inDays < 7) {
-      return '${difference.inDays} ngày trước';
-    } else {
-      return '${time.day}/${time.month}/${time.year}';
-    }
   }
 }

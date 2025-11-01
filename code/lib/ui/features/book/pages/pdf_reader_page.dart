@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import '../../../../data/models/book.dart';
+import '../../../../services/bookmarks_manager.dart';
 
 class PdfReaderPage extends StatefulWidget {
   final BookModel book;
@@ -14,15 +15,25 @@ class PdfReaderPage extends StatefulWidget {
 class _PdfReaderPageState extends State<PdfReaderPage> {
   final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
   late PdfViewerController _pdfViewerController;
+  final BookmarksManager _bookmarksManager = BookmarksManager();
   int _currentPageNumber = 1;
   int _totalPages = 0;
   bool _isFullscreen = false;
   bool _isLoading = true;
 
+  bool get _hasBookmark => _bookmarksManager.hasBookmark(widget.book.id);
+
   @override
   void initState() {
     super.initState();
     _pdfViewerController = PdfViewerController();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final bookmarkedPage = _bookmarksManager.getBookmark(widget.book.id);
+      if (bookmarkedPage != null) {
+        _pdfViewerController.jumpToPage(bookmarkedPage);
+      }
+    });
   }
 
   @override
@@ -83,12 +94,31 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
           },
         ),
         IconButton(
-          icon: const Icon(Icons.bookmark_border, color: Colors.white),
+          icon: Icon(
+            _bookmarksManager.hasBookmark(widget.book.id)
+                ? Icons.bookmark
+                : Icons.bookmark_border,
+            color: Colors.white,
+          ),
           onPressed: () {
-            // TODO: Add bookmark functionality
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Bookmark đã được thêm!')),
-            );
+            if (_bookmarksManager.hasBookmark(widget.book.id)) {
+              _bookmarksManager.removeBookmark(widget.book.id);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Đã xóa bookmark'),
+                  duration: Duration(seconds: 2),
+                ),
+              );
+            } else {
+              _bookmarksManager.addBookmark(widget.book.id, _currentPageNumber);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Đã đánh dấu trang $_currentPageNumber'),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            }
+            setState(() {});
           },
         ),
       ],
