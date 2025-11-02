@@ -22,9 +22,7 @@ class _MainScreenState extends State<MainScreen> {
       case 1:
         return const DiscoverPage();
       case 2:
-        return LibraryPage(
-          key: ValueKey(_currentIndex),
-        ); // Rebuild khi quay lại
+        return LibraryPage(key: ValueKey(_currentIndex));
       case 3:
         return const ChallengePage();
       case 4:
@@ -36,10 +34,15 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isTablet = screenWidth >= 600;
+
     return Scaffold(
       body: _buildPage(_currentIndex),
       bottomNavigationBar: Container(
-        height: 70,
+        padding: isTablet
+            ? EdgeInsets.symmetric(horizontal: screenWidth * 0.2)
+            : EdgeInsets.zero,
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(

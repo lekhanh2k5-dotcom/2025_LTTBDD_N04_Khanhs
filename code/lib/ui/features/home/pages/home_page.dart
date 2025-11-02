@@ -19,17 +19,22 @@ class HomePage extends StatelessWidget {
         children: [
           _buildHeader(),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  _buildWelcomeMessage(),
-                  _buildFeaturedBooks(context),
-                  _buildCategoriesBrowser(),
-                  _buildDynamicCategorySections(),
-                  _buildRecentReading(),
-                  _buildFeaturedReviews(),
-                  const SizedBox(height: 20),
-                ],
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 900),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      _buildWelcomeMessage(),
+                      _buildFeaturedBooks(context),
+                      _buildCategoriesBrowser(),
+                      _buildDynamicCategorySections(),
+                      _buildRecentReading(),
+                      _buildFeaturedReviews(),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

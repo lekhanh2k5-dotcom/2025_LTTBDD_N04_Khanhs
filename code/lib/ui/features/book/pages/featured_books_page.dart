@@ -35,25 +35,35 @@ class FeaturedBooksPage extends StatelessWidget {
       ),
       body: featuredBooks.isEmpty
           ? _buildEmptyState()
-          : GridView.builder(
-              padding: const EdgeInsets.all(16),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.55,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 16,
-              ),
-              itemCount: featuredBooks.length,
-              itemBuilder: (context, index) {
-                return BookCard(
-                  book: featuredBooks[index],
-                  type: CardType.grid,
-                  heroContext: 'featured_all',
-                  onFavorite: () {
-                    print('Favorite: ${featuredBooks[index].title}');
+          : Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 800),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    final isTablet = constraints.maxWidth >= 600;
+                    return GridView.builder(
+                      padding: const EdgeInsets.all(16),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: isTablet ? 4 : 2,
+                        childAspectRatio: 0.55,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 16,
+                      ),
+                      itemCount: featuredBooks.length,
+                      itemBuilder: (context, index) {
+                        return BookCard(
+                          book: featuredBooks[index],
+                          type: CardType.grid,
+                          heroContext: 'featured_books',
+                          onFavorite: () {
+                            print('Favorite: ${featuredBooks[index].title}');
+                          },
+                        );
+                      },
+                    );
                   },
-                );
-              },
+                ),
+              ),
             ),
     );
   }

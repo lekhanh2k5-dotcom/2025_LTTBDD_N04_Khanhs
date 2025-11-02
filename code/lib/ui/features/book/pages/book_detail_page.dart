@@ -32,18 +32,23 @@ class _BookDetailPageState extends State<BookDetailPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: _buildAppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildBookCover(),
-            _buildBookInfo(),
-            _buildActionButtons(),
-            _buildRatingSection(),
-            _buildDescriptionSection(),
-            _buildReviewsSection(),
-            _buildRelatedBooksSection(),
-            const SizedBox(height: 20),
-          ],
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 800),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildBookCover(),
+                _buildBookInfo(),
+                _buildActionButtons(),
+                _buildRatingSection(),
+                _buildDescriptionSection(),
+                _buildReviewsSection(),
+                _buildRelatedBooksSection(),
+                const SizedBox(height: 20),
+              ],
+            ),
+          ),
         ),
       ),
     );
