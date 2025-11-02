@@ -121,17 +121,22 @@ class ChallengePage extends StatelessWidget {
         children: [
           _buildHeader(),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildReadingGoal(),
-                  _buildSectionTitle('Thử thách đang diễn ra'),
-                  _buildChallengesList(),
-                  _buildSectionTitle('Thành tích của bạn'),
-                  _buildBadgesGrid(),
-                  const SizedBox(height: 20),
-                ],
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 900),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildReadingGoal(),
+                      _buildSectionTitle('Thử thách đang diễn ra'),
+                      _buildChallengesList(),
+                      _buildSectionTitle('Thành tích của bạn'),
+                      _buildBadgesGrid(),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

@@ -20,17 +20,22 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           _buildHeader(),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  _buildStudentInfoCard(),
-                  const SizedBox(height: 16),
-                  _buildSettingsSection(),
-                  const SizedBox(height: 16),
-                  _buildActionsSection(),
-                  const SizedBox(height: 20),
-                ],
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 800),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      _buildStudentInfoCard(),
+                      const SizedBox(height: 16),
+                      _buildSettingsSection(),
+                      const SizedBox(height: 16),
+                      _buildActionsSection(),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

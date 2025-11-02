@@ -56,12 +56,17 @@ class _LibraryPageState extends State<LibraryPage>
           _buildHeader(),
           _buildTabBar(),
           Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                Builder(builder: (context) => _buildFavoritesTab()),
-                _buildBookmarksTab(),
-              ],
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 900),
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    Builder(builder: (context) => _buildFavoritesTab()),
+                    _buildBookmarksTab(),
+                  ],
+                ),
+              ),
             ),
           ),
         ],
@@ -170,31 +175,36 @@ class _LibraryPageState extends State<LibraryPage>
       );
     }
 
-    return GridView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        childAspectRatio: 0.52,
-        crossAxisSpacing: 4,
-        mainAxisSpacing: 12,
-      ),
-      itemCount: _favoriteBooks.length,
-      itemBuilder: (context, index) {
-        final book = _favoriteBooks[index];
-        return BookCard(
-          book: book,
-          type: CardType.grid,
-          width: null,
-          heroContext: 'library_favorite',
-          onFavorite: () {
-            final bookTitle = book.title;
-            _favoritesManager.removeFavorite(book.id);
-            setState(() {});
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Đã xóa "$bookTitle" khỏi yêu thích'),
-                duration: const Duration(seconds: 2),
-              ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isTablet = constraints.maxWidth >= 600;
+        return GridView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: isTablet ? 4 : 3,
+            childAspectRatio: 0.52,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 12,
+          ),
+          itemCount: _favoriteBooks.length,
+          itemBuilder: (context, index) {
+            final book = _favoriteBooks[index];
+            return BookCard(
+              book: book,
+              type: CardType.grid,
+              width: null,
+              heroContext: 'library_favorite',
+              onFavorite: () {
+                final bookTitle = book.title;
+                _favoritesManager.removeFavorite(book.id);
+                setState(() {});
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Đã xóa "$bookTitle" khỏi yêu thích'),
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+              },
             );
           },
         );

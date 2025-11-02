@@ -59,9 +59,24 @@ class _DiscoverPageState extends State<DiscoverPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  _buildSearchBar(),
-                  _buildTagsSection(),
-                  _buildSearchResults(),
+                  Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 900),
+                      child: _buildSearchBar(),
+                    ),
+                  ),
+                  Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 900),
+                      child: _buildTagsSection(),
+                    ),
+                  ),
+                  Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 900),
+                      child: _buildSearchResults(),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -343,23 +358,28 @@ class _DiscoverPageState extends State<DiscoverPage> {
             ),
           ),
           const SizedBox(height: 12),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.55,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-            ),
-            itemCount: books.length,
-            itemBuilder: (context, index) {
-              return BookCard(
-                book: books[index],
-                type: CardType.grid,
-                heroContext: 'discover',
-                onFavorite: () {
-                  print('Favorite: ${books[index].title}');
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final isTablet = constraints.maxWidth >= 600;
+              return GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: isTablet ? 4 : 2,
+                  childAspectRatio: 0.55,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                ),
+                itemCount: books.length,
+                itemBuilder: (context, index) {
+                  return BookCard(
+                    book: books[index],
+                    type: CardType.grid,
+                    heroContext: 'discover',
+                    onFavorite: () {
+                      print('Favorite: ${books[index].title}');
+                    },
+                  );
                 },
               );
             },
