@@ -56,7 +56,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
-      backgroundColor: const Color(0xFF8D6E63),
+      backgroundColor: const Color(0xFF1976D2),
       elevation: 0,
       titleSpacing: 0,
       leading: IconButton(
@@ -76,9 +76,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
       actions: [
         IconButton(
           icon: const Icon(Icons.share, color: Colors.white),
-          onPressed: () {
-            // Share functionality
-          },
+          onPressed: () {},
         ),
       ],
       flexibleSpace: Container(
@@ -86,7 +84,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF8D6E63), Color(0xFF8D6E63)],
+            colors: [Color(0xFF1976D2), Color(0xFF1976D2)],
           ),
         ),
       ),
@@ -134,8 +132,8 @@ class _BookDetailPageState extends State<BookDetailPage> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFF8D6E63).withOpacity(0.7),
-            const Color(0xFF8D6E63).withOpacity(0.5),
+            const Color(0xFF1976D2).withOpacity(0.7),
+            const Color(0xFF1976D2).withOpacity(0.5),
           ],
         ),
       ),
@@ -183,8 +181,8 @@ class _BookDetailPageState extends State<BookDetailPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Favorite Button
           Container(
             width: 56,
             height: 56,
@@ -217,56 +215,52 @@ class _BookDetailPageState extends State<BookDetailPage> {
           ),
 
           const SizedBox(width: 16),
-
-          // Main Action Button
-          Expanded(
-            child: Container(
-              height: 56,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
-                gradient: const LinearGradient(
-                  colors: [Color(0xFF8D6E63), Color(0xFFA1887F)],
+          Container(
+            height: 56,
+            constraints: const BoxConstraints(maxWidth: 200),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              gradient: const LinearGradient(
+                colors: [Color(0xFF1976D2), Color(0xFF42A5F5)],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF1976D2).withOpacity(0.3),
+                  blurRadius: 8,
+                  offset: const Offset(0, 4),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0xFF8D6E63).withOpacity(0.3),
-                    blurRadius: 8,
-                    offset: const Offset(0, 4),
+              ],
+            ),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PdfReaderPage(book: widget.book),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
+              ),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.menu_book, color: Colors.white),
+                  SizedBox(width: 8),
+                  Text(
+                    'Bắt đầu đọc',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
-              ),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Navigate to PDF reader
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PdfReaderPage(book: widget.book),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(28),
-                  ),
-                ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.menu_book, color: Colors.white),
-                    SizedBox(width: 8),
-                    Text(
-                      'Bắt đầu đọc',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ),
           ),
@@ -292,7 +286,6 @@ class _BookDetailPageState extends State<BookDetailPage> {
       ),
       child: Row(
         children: [
-          // Rating Stars
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -342,17 +335,17 @@ class _BookDetailPageState extends State<BookDetailPage> {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF8D6E63).withOpacity(0.1),
+                  color: const Color(0xFF1976D2).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: const Color(0xFF8D6E63).withOpacity(0.3),
+                    color: const Color(0xFF1976D2).withOpacity(0.3),
                   ),
                 ),
                 child: Text(
                   _getCategoryName(widget.book.categoryId),
                   style: const TextStyle(
                     fontSize: 12,
-                    color: Color(0xFF8D6E63),
+                    color: Color(0xFF1976D2),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -413,7 +406,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
               child: Text(
                 isDescriptionExpanded ? 'Thu gọn ↑' : 'Xem thêm ↓',
                 style: const TextStyle(
-                  color: Color(0xFF8D6E63),
+                  color: Color(0xFF1976D2),
                   fontWeight: FontWeight.w600,
                 ),
               ),

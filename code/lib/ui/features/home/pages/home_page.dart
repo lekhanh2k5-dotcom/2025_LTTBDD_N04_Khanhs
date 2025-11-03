@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../widgets/book_card.dart';
-import '../../../../data/models/review.dart';
-import '../../../../widgets/review_card.dart';
 import '../../../../data/models/category.dart';
 import '../../category/pages/category_detail_page.dart';
 import '../../category/pages/categories_page.dart';
@@ -29,8 +27,6 @@ class HomePage extends StatelessWidget {
                       _buildFeaturedBooks(context),
                       _buildCategoriesBrowser(),
                       _buildDynamicCategorySections(),
-                      _buildRecentReading(),
-                      _buildFeaturedReviews(),
                       const SizedBox(height: 20),
                     ],
                   ),
@@ -46,7 +42,7 @@ class HomePage extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       height: 80,
-      color: const Color(0xFF8D6E63),
+      color: const Color(0xFF42A5F5),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -79,13 +75,13 @@ class HomePage extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            const Color(0xFF8D6E63).withOpacity(0.2),
-            const Color(0xFF8D6E63).withOpacity(0.05),
+            const Color(0xFF42A5F5).withOpacity(0.2),
+            const Color(0xFF42A5F5).withOpacity(0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color(0xFF8D6E63).withOpacity(0.2),
+          color: const Color(0xFF42A5F5).withOpacity(0.2),
           width: 1,
         ),
       ),
@@ -97,7 +93,7 @@ class HomePage extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF8D6E63),
+              color: Color(0xFF42A5F5),
             ),
           ),
           SizedBox(height: 8),
@@ -140,35 +136,6 @@ class HomePage extends StatelessWidget {
                 heroContext: 'featured',
                 onFavorite: () {
                   print('Favorite: ${featuredBooks[index].title}');
-                },
-              );
-            },
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildRecentReading() {
-    final recentBooks = sampleBooks.take(3).toList();
-
-    return Column(
-      children: [
-        _buildSectionHeader('📖 Đọc gần đây', 'Xem thêm'),
-        Container(
-          height: 280,
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: recentBooks.length,
-            itemBuilder: (context, index) {
-              return BookCard(
-                book: recentBooks[index],
-                type: CardType.grid,
-                width: 140,
-                heroContext: 'recent',
-                onFavorite: () {
-                  print('Favorite: ${recentBooks[index].title}');
                 },
               );
             },
@@ -280,31 +247,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildFeaturedReviews() {
-    return Column(
-      children: [
-        _buildSectionHeader('📝 Đánh Giá Nổi Bật', 'Xem thêm'),
-        const SizedBox(height: 16),
-        SizedBox(
-          height: 400,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: sampleReviews.length,
-            itemBuilder: (context, index) {
-              return ReviewCard(
-                review: sampleReviews[index],
-                onTap: () {
-                  print('Review tapped: ${sampleReviews[index].bookTitle}');
-                },
-              );
-            },
-          ),
-        ),
-      ],
     );
   }
 

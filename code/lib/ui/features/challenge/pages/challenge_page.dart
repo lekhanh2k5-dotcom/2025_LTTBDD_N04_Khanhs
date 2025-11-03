@@ -148,7 +148,7 @@ class ChallengePage extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       height: 80,
-      color: const Color(0xFF8D6E63),
+      color: const Color(0xFFFF9800),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -177,7 +177,7 @@ class ChallengePage extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF8D6E63), Color(0xFFA1887F)],
+          colors: [Color(0xFFFF9800), Color(0xFFFFA726)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -332,14 +332,14 @@ class ChallengePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: challenge.isCompleted
                         ? Colors.green.withOpacity(0.1)
-                        : const Color(0xFF8D6E63).withOpacity(0.1),
+                        : const Color(0xFFFF9800).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
                     challenge.icon,
                     color: challenge.isCompleted
                         ? Colors.green
-                        : const Color(0xFF8D6E63),
+                        : const Color(0xFFFF9800),
                     size: 24,
                   ),
                 ),
@@ -365,7 +365,11 @@ class ChallengePage extends StatelessWidget {
                   ),
                 ),
                 if (challenge.isCompleted)
-                  const Icon(Icons.check_circle, color: Colors.green, size: 28),
+                  const Icon(
+                    Icons.check_circle,
+                    color: Color(0xFF43A047),
+                    size: 28,
+                  ),
               ],
             ),
             const SizedBox(height: 12),
@@ -380,8 +384,8 @@ class ChallengePage extends StatelessWidget {
                       backgroundColor: Colors.grey[200],
                       valueColor: AlwaysStoppedAnimation<Color>(
                         challenge.isCompleted
-                            ? Colors.green
-                            : const Color(0xFF8D6E63),
+                            ? const Color(0xFF43A047)
+                            : const Color(0xFFFF9800),
                       ),
                     ),
                   ),
@@ -450,10 +454,20 @@ class ChallengePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            badge.icon,
-            size: 40,
-            color: badge.unlocked ? const Color(0xFF8D6E63) : Colors.grey[300],
+          Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: badge.unlocked
+                  ? const Color(0xFFFFB300)
+                  : Colors.grey[300],
+            ),
+            child: Icon(
+              badge.icon,
+              size: 40,
+              color: badge.unlocked ? Colors.white : Colors.grey[600],
+            ),
           ),
           const SizedBox(height: 8),
           Text(

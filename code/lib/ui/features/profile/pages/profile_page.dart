@@ -47,7 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget _buildHeader() {
     return Container(
       height: 80,
-      color: const Color(0xFF8D6E63),
+      color: const Color(0xFF7E57C2),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -76,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF8D6E63), Color(0xFFA1887F)],
+          colors: [Color(0xFF7E57C2), Color(0xFF9575CD)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -223,7 +223,7 @@ class _ProfilePageState extends State<ProfilePage> {
             title: 'Chế độ tối',
             trailing: Switch(
               value: _isDarkMode,
-              activeColor: const Color(0xFF8D6E63),
+              activeColor: const Color(0xFF7E57C2),
               onChanged: (value) {
                 setState(() {
                   _isDarkMode = value;
@@ -245,7 +245,7 @@ class _ProfilePageState extends State<ProfilePage> {
             title: 'Thông báo',
             trailing: Switch(
               value: _isNotificationEnabled,
-              activeColor: const Color(0xFF8D6E63),
+              activeColor: const Color(0xFF7E57C2),
               onChanged: (value) {
                 setState(() {
                   _isNotificationEnabled = value;
@@ -362,7 +362,7 @@ class _ProfilePageState extends State<ProfilePage> {
           _buildActionTile(
             icon: Icons.logout,
             title: 'Đăng xuất',
-            iconColor: Colors.red,
+            iconColor: const Color(0xFFF44336),
             onTap: () {
               showDialog(
                 context: context,
@@ -410,10 +410,10 @@ class _ProfilePageState extends State<ProfilePage> {
       leading: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: const Color(0xFF8D6E63).withOpacity(0.1),
+          color: const Color(0xFF1976D2).withOpacity(0.1),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Icon(icon, color: const Color(0xFF8D6E63), size: 24),
+        child: Icon(icon, color: const Color(0xFF1976D2), size: 24),
       ),
       title: Text(
         title,

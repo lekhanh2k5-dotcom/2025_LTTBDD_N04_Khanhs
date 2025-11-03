@@ -89,7 +89,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
   Widget _buildHeader() {
     return Container(
       height: 80,
-      color: const Color(0xFF8D6E63),
+      color: const Color(0xFF26A69A),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -136,7 +136,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
         decoration: InputDecoration(
           hintText: 'Tìm sách theo tên hoặc tác giả...',
           hintStyle: TextStyle(color: Colors.grey[400]),
-          prefixIcon: const Icon(Icons.search, color: Color(0xFF8D6E63)),
+          prefixIcon: const Icon(Icons.search, color: Color(0xFF26A69A)),
           suffixIcon: _searchQuery.isNotEmpty
               ? IconButton(
                   icon: const Icon(Icons.clear, color: Colors.grey),
@@ -213,12 +213,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         ),
                         decoration: BoxDecoration(
                           color: isSelected
-                              ? const Color(0xFF8D6E63)
+                              ? const Color(0xFF26A69A)
                               : Colors.white,
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
                             color: isSelected
-                                ? const Color(0xFF8D6E63)
+                                ? const Color(0xFF26A69A)
                                 : Colors.grey[300]!,
                             width: 1,
                           ),
@@ -265,12 +265,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         ),
                         decoration: BoxDecoration(
                           color: isSelected
-                              ? const Color(0xFF8D6E63)
+                              ? const Color(0xFF26A69A)
                               : Colors.white,
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
                             color: isSelected
-                                ? const Color(0xFF8D6E63)
+                                ? const Color(0xFF26A69A)
                                 : Colors.grey[300]!,
                             width: 1,
                           ),

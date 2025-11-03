@@ -14,7 +14,7 @@ class CategoriesPage extends StatelessWidget {
           '📚 Tất Cả Danh Mục',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: const Color(0xFF8D6E63),
+        backgroundColor: const Color(0xFF1976D2),
         foregroundColor: Colors.white,
       ),
       body: Center(

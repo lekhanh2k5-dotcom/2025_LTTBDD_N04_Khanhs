@@ -77,7 +77,7 @@ class _LibraryPageState extends State<LibraryPage>
   Widget _buildHeader() {
     return Container(
       height: 80,
-      color: const Color(0xFF8D6E63),
+      color: const Color(0xFF1E88E5),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -114,9 +114,9 @@ class _LibraryPageState extends State<LibraryPage>
       ),
       child: TabBar(
         controller: _tabController,
-        labelColor: const Color(0xFF8D6E63),
-        unselectedLabelColor: Colors.grey[400],
-        indicatorColor: const Color(0xFF8D6E63),
+        labelColor: const Color(0xFF1E88E5),
+        unselectedLabelColor: Colors.grey,
+        indicatorColor: const Color(0xFF1E88E5),
         indicatorWeight: 3,
         indicatorPadding: const EdgeInsets.symmetric(horizontal: 20),
         labelStyle: const TextStyle(
@@ -313,7 +313,7 @@ class _LibraryPageState extends State<LibraryPage>
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF8D6E63).withOpacity(0.1),
+                          color: const Color(0xFF1E88E5).withOpacity(0.1),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Row(
@@ -322,14 +322,14 @@ class _LibraryPageState extends State<LibraryPage>
                             const Icon(
                               Icons.bookmark,
                               size: 14,
-                              color: Color(0xFF8D6E63),
+                              color: Color(0xFF1E88E5),
                             ),
                             const SizedBox(width: 4),
                             Text(
                               'Trang ${bookmark.pageNumber}',
                               style: const TextStyle(
                                 fontSize: 12,
-                                color: Color(0xFF8D6E63),
+                                color: Color(0xFF1E88E5),
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
