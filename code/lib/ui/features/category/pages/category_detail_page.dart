@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
 import '../../../../widgets/book_card.dart';
+import '../../../../utils/app_language.dart';
 
 class CategoryDetailPage extends StatelessWidget {
   final String categoryId;
@@ -34,7 +35,7 @@ class CategoryDetailPage extends StatelessWidget {
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                category.name,
+                category.translatedName,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -97,7 +98,7 @@ class CategoryDetailPage extends StatelessWidget {
           Icon(Icons.book_outlined, size: 80, color: Colors.grey.shade400),
           const SizedBox(height: 16),
           Text(
-            'Chưa có sách nào',
+            AppLanguage.isEnglish ? 'No books yet' : 'Chưa có sách nào',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
@@ -106,7 +107,9 @@ class CategoryDetailPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Thể loại này hiện chưa có sách',
+            AppLanguage.isEnglish
+                ? 'This category has no books yet'
+                : 'Thể loại này hiện chưa có sách',
             style: TextStyle(fontSize: 14, color: Colors.grey.shade500),
           ),
         ],

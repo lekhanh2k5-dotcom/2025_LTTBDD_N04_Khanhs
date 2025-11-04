@@ -4,6 +4,7 @@ import 'discover/pages/discover_page.dart';
 import 'library/pages/library_page.dart';
 import 'challenge/pages/challenge_page.dart';
 import 'profile/pages/profile_page.dart';
+import '../../../utils/app_language.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,6 +15,20 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    AppLanguage.onLanguageChanged = () {
+      setState(() {});
+    };
+  }
+
+  @override
+  void dispose() {
+    AppLanguage.onLanguageChanged = null;
+    super.dispose();
+  }
 
   Widget _buildPage(int index) {
     switch (index) {
@@ -84,7 +99,7 @@ class _MainScreenState extends State<MainScreen> {
                       ? const Color(0xFF42A5F5)
                       : Colors.grey.shade400,
                 ),
-                label: 'Sách',
+                label: AppLanguage.get('nav_home'),
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -93,7 +108,7 @@ class _MainScreenState extends State<MainScreen> {
                       ? const Color(0xFF26A69A)
                       : Colors.grey.shade400,
                 ),
-                label: 'Khám phá',
+                label: AppLanguage.get('nav_discover'),
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -102,7 +117,7 @@ class _MainScreenState extends State<MainScreen> {
                       ? const Color(0xFF1E88E5)
                       : Colors.grey.shade400,
                 ),
-                label: 'Thư viện',
+                label: AppLanguage.get('nav_library'),
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -111,7 +126,7 @@ class _MainScreenState extends State<MainScreen> {
                       ? const Color(0xFFFF9800)
                       : Colors.grey.shade400,
                 ),
-                label: 'Thử thách',
+                label: AppLanguage.get('nav_challenge'),
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -120,7 +135,7 @@ class _MainScreenState extends State<MainScreen> {
                       ? const Color(0xFF7E57C2)
                       : Colors.grey.shade400,
                 ),
-                label: 'Tài khoản',
+                label: AppLanguage.get('nav_profile'),
               ),
             ],
           ),

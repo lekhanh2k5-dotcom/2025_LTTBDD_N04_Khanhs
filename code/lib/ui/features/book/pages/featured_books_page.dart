@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../widgets/book_card.dart';
+import '../../../../utils/app_language.dart';
 
 class FeaturedBooksPage extends StatelessWidget {
   const FeaturedBooksPage({super.key});
@@ -18,13 +19,13 @@ class FeaturedBooksPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Row(
+        title: Row(
           children: [
-            Text('⭐', style: TextStyle(fontSize: 24)),
-            SizedBox(width: 8),
+            const Text('⭐', style: TextStyle(fontSize: 24)),
+            const SizedBox(width: 8),
             Text(
-              'Sách Nổi Bật',
-              style: TextStyle(
+              AppLanguage.get('home_featured'),
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -76,7 +77,9 @@ class FeaturedBooksPage extends StatelessWidget {
           Icon(Icons.star_outline, size: 80, color: Colors.grey.shade400),
           const SizedBox(height: 16),
           Text(
-            'Chưa có sách nổi bật',
+            AppLanguage.isEnglish
+                ? 'No featured books'
+                : 'Chưa có sách nổi bật',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
@@ -85,7 +88,9 @@ class FeaturedBooksPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Hiện chưa có sách nào được đánh dấu nổi bật',
+            AppLanguage.isEnglish
+                ? 'No books have been marked as featured yet'
+                : 'Hiện chưa có sách nào được đánh dấu nổi bật',
             style: TextStyle(fontSize: 14, color: Colors.grey.shade500),
           ),
         ],

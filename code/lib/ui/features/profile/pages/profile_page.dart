@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/app_language.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,7 +11,9 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   bool _isDarkMode = false;
   bool _isNotificationEnabled = true;
-  String _selectedLanguage = 'Tiếng Việt';
+
+  String get _selectedLanguage =>
+      AppLanguage.isEnglish ? 'English' : 'Tiếng Việt';
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +58,9 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               const Icon(Icons.account_circle, color: Colors.white, size: 28),
               const SizedBox(width: 12),
-              const Text(
-                'Tài khoản',
-                style: TextStyle(
+              Text(
+                AppLanguage.get('profile_title'),
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -100,9 +103,9 @@ class _ProfilePageState extends State<ProfilePage> {
             child: const Icon(Icons.person, size: 60, color: Colors.white),
           ),
           const SizedBox(height: 16),
-          const Text(
-            'Lê Ngọc Khánh',
-            style: TextStyle(
+          Text(
+            AppLanguage.get('profile_student_name'),
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -115,9 +118,9 @@ class _ProfilePageState extends State<ProfilePage> {
               color: Colors.white.withOpacity(0.2),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: const Text(
-              'MSSV: 23010546',
-              style: TextStyle(
+            child: Text(
+              AppLanguage.get('profile_student_id'),
+              style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
@@ -129,17 +132,21 @@ class _ProfilePageState extends State<ProfilePage> {
           const SizedBox(height: 16),
           _buildInfoRow(
             Icons.menu_book,
-            'Dự án',
-            'BookReader - Ứng dụng đọc sách',
+            AppLanguage.get('profile_project'),
+            AppLanguage.get('profile_project_value'),
           ),
           const SizedBox(height: 12),
           _buildInfoRow(
             Icons.class_,
-            'Lớp',
-            'Lập trình cho thiết bị di động-1-1-25(N04)',
+            AppLanguage.get('profile_class'),
+            AppLanguage.get('profile_class_value'),
           ),
           const SizedBox(height: 12),
-          _buildInfoRow(Icons.school, 'Giảng viên', 'Nguyễn Xuân Quế'),
+          _buildInfoRow(
+            Icons.school,
+            AppLanguage.get('profile_teacher'),
+            AppLanguage.get('profile_teacher_value'),
+          ),
         ],
       ),
     );
@@ -192,7 +199,7 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           _buildSettingTile(
             icon: Icons.language,
-            title: 'Ngôn ngữ',
+            title: AppLanguage.get('profile_language'),
             trailing: DropdownButton<String>(
               value: _selectedLanguage,
               underline: const SizedBox(),
@@ -205,11 +212,13 @@ class _ProfilePageState extends State<ProfilePage> {
               onChanged: (String? newValue) {
                 if (newValue != null) {
                   setState(() {
-                    _selectedLanguage = newValue;
+                    AppLanguage.setLanguage(newValue == 'English');
                   });
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Đã chuyển sang $newValue'),
+                      content: Text(
+                        '${AppLanguage.get('msg_language_changed')} $newValue',
+                      ),
                       duration: const Duration(seconds: 2),
                     ),
                   );
@@ -220,7 +229,7 @@ class _ProfilePageState extends State<ProfilePage> {
           const Divider(height: 1),
           _buildSettingTile(
             icon: Icons.dark_mode,
-            title: 'Chế độ tối',
+            title: AppLanguage.get('profile_dark_mode'),
             trailing: Switch(
               value: _isDarkMode,
               activeColor: const Color(0xFF7E57C2),
@@ -230,9 +239,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 });
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(
-                      value ? 'Đã bật chế độ tối' : 'Đã tắt chế độ tối',
-                    ),
+                    content: Text(AppLanguage.get('msg_feature_developing')),
                     duration: const Duration(seconds: 2),
                   ),
                 );
@@ -242,7 +249,7 @@ class _ProfilePageState extends State<ProfilePage> {
           const Divider(height: 1),
           _buildSettingTile(
             icon: Icons.notifications,
-            title: 'Thông báo',
+            title: AppLanguage.get('profile_notifications'),
             trailing: Switch(
               value: _isNotificationEnabled,
               activeColor: const Color(0xFF7E57C2),
@@ -252,9 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 });
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(
-                      value ? 'Đã bật thông báo' : 'Đã tắt thông báo',
-                    ),
+                    content: Text(AppLanguage.get('msg_feature_developing')),
                     duration: const Duration(seconds: 2),
                   ),
                 );
@@ -264,31 +269,31 @@ class _ProfilePageState extends State<ProfilePage> {
           const Divider(height: 1),
           _buildSettingTile(
             icon: Icons.info_outline,
-            title: 'Về ứng dụng',
-            subtitle: 'Version 1.0.0',
+            title: AppLanguage.get('profile_about_app'),
+            subtitle: AppLanguage.get('profile_version'),
             trailing: const Icon(Icons.chevron_right, color: Colors.grey),
             onTap: () {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('Về ứng dụng'),
-                  content: const Column(
+                  title: Text(AppLanguage.get('dialog_about_title')),
+                  content: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('📚 BookReader App'),
-                      SizedBox(height: 8),
-                      Text('Version: 1.0.0'),
-                      SizedBox(height: 8),
-                      Text('Ứng dụng đọc sách điện tử'),
-                      SizedBox(height: 8),
-                      Text('© 2025 Lê Ngọc Khánh'),
+                      Text(AppLanguage.get('dialog_about_app_name')),
+                      const SizedBox(height: 8),
+                      Text(AppLanguage.get('dialog_about_version')),
+                      const SizedBox(height: 8),
+                      Text(AppLanguage.get('dialog_about_description')),
+                      const SizedBox(height: 8),
+                      Text(AppLanguage.get('dialog_about_copyright')),
                     ],
                   ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: const Text('Đóng'),
+                      child: Text(AppLanguage.get('button_close')),
                     ),
                   ],
                 ),
@@ -318,26 +323,26 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           _buildActionTile(
             icon: Icons.email_outlined,
-            title: 'Liên hệ / Góp ý',
+            title: AppLanguage.get('profile_contact'),
             iconColor: Colors.blue,
             onTap: () {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('Liên hệ'),
-                  content: const Column(
+                  title: Text(AppLanguage.get('dialog_contact_title')),
+                  content: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('📧 Email: 23010546@st.phenikaa-uni.edu.vn'),
-                      SizedBox(height: 8),
-                      Text('📱 Hotline: 0123456789'),
+                      Text(AppLanguage.get('dialog_contact_email')),
+                      const SizedBox(height: 8),
+                      Text(AppLanguage.get('dialog_contact_phone')),
                     ],
                   ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: const Text('Đóng'),
+                      child: Text(AppLanguage.get('button_close')),
                     ),
                   ],
                 ),
@@ -347,13 +352,13 @@ class _ProfilePageState extends State<ProfilePage> {
           const Divider(height: 1),
           _buildActionTile(
             icon: Icons.star_outline,
-            title: 'Đánh giá ứng dụng',
+            title: AppLanguage.get('profile_rate'),
             iconColor: Colors.orange,
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Cảm ơn bạn đã đánh giá! ⭐⭐⭐⭐⭐'),
-                  duration: Duration(seconds: 2),
+                SnackBar(
+                  content: Text(AppLanguage.get('msg_rating_thanks')),
+                  duration: const Duration(seconds: 2),
                 ),
               );
             },
@@ -361,32 +366,32 @@ class _ProfilePageState extends State<ProfilePage> {
           const Divider(height: 1),
           _buildActionTile(
             icon: Icons.logout,
-            title: 'Đăng xuất',
+            title: AppLanguage.get('profile_logout'),
             iconColor: const Color(0xFFF44336),
             onTap: () {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('Đăng xuất'),
-                  content: const Text('Bạn có chắc muốn đăng xuất?'),
+                  title: Text(AppLanguage.get('dialog_logout_title')),
+                  content: Text(AppLanguage.get('dialog_logout_message')),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: const Text('Hủy'),
+                      child: Text(AppLanguage.get('button_cancel')),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Đã đăng xuất'),
-                            duration: Duration(seconds: 2),
+                          SnackBar(
+                            content: Text(AppLanguage.get('msg_logged_out')),
+                            duration: const Duration(seconds: 2),
                           ),
                         );
                       },
-                      child: const Text(
-                        'Đăng xuất',
-                        style: TextStyle(color: Colors.red),
+                      child: Text(
+                        AppLanguage.get('button_logout'),
+                        style: const TextStyle(color: Colors.red),
                       ),
                     ),
                   ],
@@ -454,7 +459,9 @@ class _ProfilePageState extends State<ProfilePage> {
         style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: title == 'Đăng xuất' ? Colors.red : Colors.black87,
+          color: title == AppLanguage.get('profile_logout')
+              ? Colors.red
+              : Colors.black87,
         ),
       ),
       trailing: const Icon(Icons.chevron_right, color: Colors.grey),

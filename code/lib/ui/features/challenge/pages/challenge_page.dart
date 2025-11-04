@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../utils/app_language.dart';
 
 class ChallengeModel {
   final String id;
@@ -40,74 +41,79 @@ class BadgeModel {
 class ChallengePage extends StatelessWidget {
   const ChallengePage({super.key});
 
-  static final List<ChallengeModel> _challenges = [
+  List<ChallengeModel> get _challenges => [
     ChallengeModel(
       id: 'c1',
-      title: 'Đọc 5 sách trong tháng',
-      description: 'Hoàn thành 5 cuốn sách bất kỳ',
+      title: AppLanguage.get('challenge_read_5_books'),
+      description: AppLanguage.get('challenge_read_5_books_desc'),
       icon: Icons.auto_stories,
       current: 3,
       target: 5,
-      reward: '🏆 Huy hiệu Độc giả',
+      reward: '🏆 ${AppLanguage.get('badge_reader')}',
     ),
     ChallengeModel(
       id: 'c2',
-      title: 'Streak 7 ngày',
-      description: 'Đọc sách liên tiếp 7 ngày',
+      title: AppLanguage.get('challenge_streak_7'),
+      description: AppLanguage.get('challenge_streak_7_desc'),
       icon: Icons.local_fire_department,
       current: 4,
       target: 7,
-      reward: '🔥 Huy hiệu Kiên trì',
+      reward: '🔥 ${AppLanguage.get('badge_persistent')}',
     ),
     ChallengeModel(
       id: 'c3',
-      title: 'Khám phá thể loại mới',
-      description: 'Đọc 1 sách từ 3 thể loại khác nhau',
+      title: AppLanguage.get('challenge_explore_genres'),
+      description: AppLanguage.get('challenge_explore_genres_desc'),
       icon: Icons.explore,
       current: 2,
       target: 3,
-      reward: '🌟 Huy hiệu Khám phá',
+      reward: '🌟 ${AppLanguage.get('badge_explorer')}',
     ),
     ChallengeModel(
       id: 'c4',
-      title: 'Viết 10 đánh giá',
-      description: 'Chia sẻ cảm nhận về sách đã đọc',
+      title: AppLanguage.get('challenge_write_reviews'),
+      description: AppLanguage.get('challenge_write_reviews_desc'),
       icon: Icons.rate_review,
       current: 5,
       target: 10,
-      reward: '✍️ Huy hiệu Phê bình gia',
+      reward: '✍️ ${AppLanguage.get('badge_critic')}',
     ),
   ];
 
-  static final List<BadgeModel> _badges = [
-    BadgeModel(id: 'b1', name: 'Người mới', icon: Icons.star, unlocked: true),
+  List<BadgeModel> get _badges => [
+    BadgeModel(
+      id: 'b1',
+      name: AppLanguage.isEnglish ? 'Beginner' : 'Người mới',
+      icon: Icons.star,
+      unlocked: true,
+    ),
     BadgeModel(
       id: 'b2',
-      name: 'Độc giả',
+      name: AppLanguage.get('badge_reader'),
       icon: Icons.auto_stories,
       unlocked: true,
     ),
     BadgeModel(
       id: 'b3',
-      name: 'Kiên trì',
+      name: AppLanguage.get('badge_persistent'),
       icon: Icons.local_fire_department,
       unlocked: false,
     ),
     BadgeModel(
       id: 'b4',
-      name: 'Khám phá',
+      name: AppLanguage.get('badge_explorer'),
       icon: Icons.explore,
       unlocked: false,
     ),
     BadgeModel(
       id: 'b5',
-      name: 'Chuyên gia',
+      name: AppLanguage.get('badge_bookworm'),
       icon: Icons.workspace_premium,
       unlocked: false,
     ),
     BadgeModel(
       id: 'b6',
-      name: 'Phê bình gia',
+      name: AppLanguage.get('badge_critic'),
       icon: Icons.rate_review,
       unlocked: false,
     ),
@@ -129,9 +135,11 @@ class ChallengePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _buildReadingGoal(),
-                      _buildSectionTitle('Thử thách đang diễn ra'),
+                      _buildSectionTitle(AppLanguage.get('challenge_ongoing')),
                       _buildChallengesList(),
-                      _buildSectionTitle('Thành tích của bạn'),
+                      _buildSectionTitle(
+                        AppLanguage.get('challenge_achievements'),
+                      ),
                       _buildBadgesGrid(),
                       const SizedBox(height: 20),
                     ],
@@ -156,9 +164,9 @@ class ChallengePage extends StatelessWidget {
             children: [
               const Icon(Icons.emoji_events, color: Colors.white, size: 28),
               const SizedBox(width: 12),
-              const Text(
-                'Thử thách',
-                style: TextStyle(
+              Text(
+                AppLanguage.get('challenge_title'),
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -196,9 +204,9 @@ class ChallengePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Mục tiêu tháng này',
-                style: TextStyle(
+              Text(
+                AppLanguage.get('challenge_monthly_goal'),
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -213,17 +221,17 @@ class ChallengePage extends StatelessWidget {
                   color: Colors.white.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.local_fire_department,
                       color: Colors.orange,
                       size: 16,
                     ),
-                    SizedBox(width: 4),
+                    const SizedBox(width: 4),
                     Text(
-                      '4 ngày',
-                      style: TextStyle(
+                      '4 ${AppLanguage.get('challenge_streak_days')}',
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
@@ -254,9 +262,9 @@ class ChallengePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              const Text(
-                'sách',
-                style: TextStyle(color: Colors.white70, fontSize: 16),
+              Text(
+                AppLanguage.get('challenge_books'),
+                style: const TextStyle(color: Colors.white70, fontSize: 16),
               ),
             ],
           ),
@@ -271,9 +279,9 @@ class ChallengePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
-            '60% hoàn thành - Cố lên! 💪',
-            style: TextStyle(color: Colors.white70, fontSize: 14),
+          Text(
+            '60% ${AppLanguage.get('challenge_completed').toLowerCase()} - ${AppLanguage.isEnglish ? 'Keep going! 💪' : 'Cố lên! 💪'}',
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
           ),
         ],
       ),

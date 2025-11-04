@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../widgets/book_card.dart';
 import '../../../../data/models/category.dart';
+import '../../../../utils/app_language.dart';
 import '../../category/pages/category_detail_page.dart';
 import '../../category/pages/categories_page.dart';
 import '../../book/pages/featured_books_page.dart';
@@ -50,9 +51,9 @@ class HomePage extends StatelessWidget {
             children: [
               const Icon(Icons.menu_book, color: Colors.white, size: 28),
               const SizedBox(width: 12),
-              const Text(
-                'Sách',
-                style: TextStyle(
+              Text(
+                AppLanguage.get('home_title'),
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -85,21 +86,21 @@ class HomePage extends StatelessWidget {
           width: 1,
         ),
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '🎉 Chào mừng trở lại!',
-            style: TextStyle(
+            AppLanguage.get('home_welcome'),
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Color(0xFF42A5F5),
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
-            'Hãy tiếp tục hành trình đọc sách của bạn',
-            style: TextStyle(fontSize: 14, color: Colors.black87),
+            AppLanguage.get('home_welcome_subtitle'),
+            style: const TextStyle(fontSize: 14, color: Colors.black87),
           ),
         ],
       ),
@@ -111,8 +112,8 @@ class HomePage extends StatelessWidget {
     return Column(
       children: [
         _buildSectionHeader(
-          '⭐ Sách nổi bật',
-          'Xem thêm',
+          '⭐ ${AppLanguage.get('home_featured')}',
+          AppLanguage.get('home_view_more'),
           onActionTap: () {
             Navigator.push(
               context,
@@ -170,7 +171,7 @@ class HomePage extends StatelessWidget {
                   print('Tapped $actionText for $title');
                 },
             child: Text(
-              actionText,
+              AppLanguage.get('home_view_more'),
               style: const TextStyle(
                 fontSize: 14,
                 color: Color(0xFF8D6E63),
@@ -236,9 +237,9 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-            child: const Text(
-              'Xem thêm',
-              style: TextStyle(
+            child: Text(
+              AppLanguage.get('home_view_more'),
+              style: const TextStyle(
                 fontSize: 14,
                 color: Color(0xFF8D6E63),
                 fontWeight: FontWeight.w500,
@@ -256,8 +257,8 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildSectionHeader(
-            '📚 Danh Mục',
-            'Xem tất cả',
+            '📚 ${AppLanguage.isEnglish ? 'Categories' : 'Danh Mục'}',
+            AppLanguage.get('home_view_more'),
             onActionTap: () {
               Navigator.push(
                 context,
@@ -320,7 +321,7 @@ class HomePage extends StatelessWidget {
                           const SizedBox(height: 4),
                           Expanded(
                             child: Text(
-                              category.name,
+                              category.translatedName,
                               style: const TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.bold,
@@ -389,7 +390,7 @@ class HomePage extends StatelessWidget {
           context: context,
           categoryId: categoryId,
           icon: category.icon,
-          name: category.name,
+          name: category.translatedName,
           count: totalBookCount,
           color: category.gradientColor1,
         ),

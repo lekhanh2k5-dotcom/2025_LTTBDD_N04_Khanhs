@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/category.dart';
 import '../../../../data/models/book.dart';
+import '../../../../utils/app_language.dart';
 import 'category_detail_page.dart';
 
 class CategoriesPage extends StatelessWidget {
@@ -10,9 +11,9 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          '📚 Tất Cả Danh Mục',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          '📚 ${AppLanguage.isEnglish ? 'All Categories' : 'Tất Cả Danh Mục'}',
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: const Color(0xFF1976D2),
         foregroundColor: Colors.white,
@@ -71,7 +72,7 @@ class CategoriesPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                category.name,
+                                category.translatedName,
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
@@ -80,7 +81,7 @@ class CategoriesPage extends StatelessWidget {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                '$bookCount sách',
+                                '$bookCount ${AppLanguage.isEnglish ? 'books' : 'sách'}',
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: Colors.white.withOpacity(0.9),

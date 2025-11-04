@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
 import '../../../../widgets/book_card.dart';
+import '../../../../utils/app_language.dart';
 
 class DiscoverPage extends StatefulWidget {
   const DiscoverPage({super.key});
@@ -97,9 +98,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
             children: [
               const Icon(Icons.explore, color: Colors.white, size: 28),
               const SizedBox(width: 12),
-              const Text(
-                'Khám phá',
-                style: TextStyle(
+              Text(
+                AppLanguage.get('discover_title'),
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -134,7 +135,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           });
         },
         decoration: InputDecoration(
-          hintText: 'Tìm sách theo tên hoặc tác giả...',
+          hintText: AppLanguage.get('discover_search_hint'),
           hintStyle: TextStyle(color: Colors.grey[400]),
           prefixIcon: const Icon(Icons.search, color: Color(0xFF26A69A)),
           suffixIcon: _searchQuery.isNotEmpty
@@ -160,9 +161,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
 
   Widget _buildTagsSection() {
     final allCategories = [
-      {'id': null, 'name': 'Tất cả', 'icon': '📚'},
+      {'id': null, 'name': AppLanguage.get('discover_all_books'), 'icon': '📚'},
       ...sampleCategories.map(
-        (cat) => {'id': cat.id, 'name': cat.name, 'icon': cat.icon},
+        (cat) => {'id': cat.id, 'name': cat.translatedName, 'icon': cat.icon},
       ),
     ];
 
@@ -173,11 +174,11 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Text(
-            '📂 Tìm theo Danh Mục',
-            style: TextStyle(
+            '📂 ${AppLanguage.isEnglish ? 'Browse by Category' : 'Tìm theo Danh Mục'}',
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
@@ -350,7 +351,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Tìm thấy ${books.length} cuốn sách',
+            '${AppLanguage.get('discover_all_books')}: ${books.length} ${AppLanguage.get('discover_books_count')}',
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,

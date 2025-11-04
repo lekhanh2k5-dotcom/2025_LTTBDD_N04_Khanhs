@@ -3,6 +3,7 @@ import '../../../../data/models/book.dart';
 import '../../../../services/favorites_manager.dart';
 import '../../../../services/bookmarks_manager.dart';
 import '../../../../widgets/book_card.dart';
+import '../../../../utils/app_language.dart';
 import '../../book/pages/pdf_reader_page.dart';
 
 class LibraryPage extends StatefulWidget {
@@ -85,9 +86,9 @@ class _LibraryPageState extends State<LibraryPage>
             children: [
               const Icon(Icons.library_books, color: Colors.white, size: 28),
               const SizedBox(width: 12),
-              const Text(
-                'Thư viện',
-                style: TextStyle(
+              Text(
+                AppLanguage.get('library_title'),
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -138,7 +139,7 @@ class _LibraryPageState extends State<LibraryPage>
                 const SizedBox(width: 8),
                 Flexible(
                   child: Text(
-                    'Yêu thích (${_favoriteBooks.length})',
+                    '${AppLanguage.get('library_favorites')} (${_favoriteBooks.length})',
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -154,7 +155,7 @@ class _LibraryPageState extends State<LibraryPage>
                 const SizedBox(width: 8),
                 Flexible(
                   child: Text(
-                    'Bookmark (${_bookmarks.length})',
+                    '${AppLanguage.get('library_bookmarks')} (${_bookmarks.length})',
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -170,8 +171,8 @@ class _LibraryPageState extends State<LibraryPage>
     if (_favoriteBooks.isEmpty) {
       return _buildEmptyState(
         icon: Icons.favorite_border,
-        title: 'Chưa có sách yêu thích',
-        description: 'Hãy thêm sách yêu thích bằng cách nhấn vào icon ❤️',
+        title: AppLanguage.get('library_no_favorites'),
+        description: AppLanguage.get('library_add_hint'),
       );
     }
 
@@ -216,8 +217,8 @@ class _LibraryPageState extends State<LibraryPage>
     if (_bookmarks.isEmpty) {
       return _buildEmptyState(
         icon: Icons.bookmark_border,
-        title: 'Chưa có bookmark',
-        description: 'Đánh dấu trang khi đọc sách để lưu vị trí của bạn',
+        title: AppLanguage.get('library_no_bookmarks'),
+        description: AppLanguage.get('library_add_hint'),
       );
     }
 

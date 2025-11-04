@@ -1,10 +1,11 @@
 // lib/models/category_model.dart
 import 'package:flutter/material.dart';
+import '../../utils/app_language.dart';
 
 class CategoryModel {
   final String id;
   final String name;
-  final String icon; // Emoji hoặc key cho asset
+  final String icon;
   final int bookCount;
   final Color gradientColor1;
   final Color gradientColor2;
@@ -17,16 +18,43 @@ class CategoryModel {
     required this.gradientColor1,
     required this.gradientColor2,
   });
+
+  String get translatedName {
+    final Map<String, String> categoryKeys = {
+      'cat1': 'cat_novel',
+      'cat2': 'cat_science',
+      'cat3': 'cat_business',
+      'cat4': 'cat_skills',
+      'cat5': 'cat_vietnam_literature',
+      'cat6': 'cat_psychology',
+      'cat7': 'cat_history',
+      'cat8': 'cat_detective',
+      'cat9': 'cat_children',
+      'cat10': 'cat_academic',
+      'cat11': 'cat_spiritual',
+      'cat12': 'cat_health',
+      'cat13': 'cat_philosophy',
+      'cat14': 'cat_tech',
+      'cat15': 'cat_art_culture',
+      'cat16': 'cat_sports_travel',
+      'cat17': 'cat_cooking',
+      'cat18': 'cat_law_politics',
+      'cat19': 'cat_education',
+      'cat20': 'cat_memoir_biography',
+    };
+
+    final key = categoryKeys[id];
+    return key != null ? AppLanguage.get(key) : name;
+  }
 }
 
-// Dữ liệu danh mục mẫu - Thay thế bằng dữ liệu thật từ API hoặc database sau này
 final List<CategoryModel> sampleCategories = [
   CategoryModel(
     id: 'cat1',
     name: 'Tiểu thuyết',
     icon: '📖',
     bookCount: 124,
-    gradientColor1: const Color(0xFF5C6BC0), // Indigo
+    gradientColor1: const Color(0xFF5C6BC0),
     gradientColor2: const Color(0xFF3F51B5),
   ),
   CategoryModel(
@@ -34,7 +62,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Khoa học',
     icon: '🧠',
     bookCount: 89,
-    gradientColor1: const Color(0xFF66BB6A), // Green
+    gradientColor1: const Color(0xFF66BB6A),
     gradientColor2: const Color(0xFF4CAF50),
   ),
   CategoryModel(
@@ -42,7 +70,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Kinh doanh',
     icon: '💼',
     bookCount: 67,
-    gradientColor1: const Color(0xFFFFB74D), // Orange
+    gradientColor1: const Color(0xFFFFB74D),
     gradientColor2: const Color(0xFFFF9800),
   ),
   CategoryModel(
@@ -50,7 +78,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Kỹ năng',
     icon: '⚡',
     bookCount: 78,
-    gradientColor1: const Color(0xFFAB47BC), // Purple
+    gradientColor1: const Color(0xFFAB47BC),
     gradientColor2: const Color(0xFF9C27B0),
   ),
   CategoryModel(
@@ -58,7 +86,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Văn học Việt Nam',
     icon: '🇻🇳',
     bookCount: 156,
-    gradientColor1: const Color(0xFFEF5350), // Red
+    gradientColor1: const Color(0xFFEF5350),
     gradientColor2: const Color(0xFFF44336),
   ),
   CategoryModel(
@@ -66,7 +94,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Tâm lý học',
     icon: '🧘',
     bookCount: 92,
-    gradientColor1: const Color(0xFF26C6DA), // Cyan
+    gradientColor1: const Color(0xFF26C6DA),
     gradientColor2: const Color(0xFF00BCD4),
   ),
   CategoryModel(
@@ -74,7 +102,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Lịch sử',
     icon: '📜',
     bookCount: 45,
-    gradientColor1: const Color(0xFF8D6E63), // Brown
+    gradientColor1: const Color(0xFF8D6E63),
     gradientColor2: const Color(0xFF795548),
   ),
   CategoryModel(
@@ -82,7 +110,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Trinh thám/Hình sự',
     icon: '🕵️',
     bookCount: 32,
-    gradientColor1: const Color(0xFF546E7A), // Blue Grey
+    gradientColor1: const Color(0xFF546E7A),
     gradientColor2: const Color(0xFF455A64),
   ),
   CategoryModel(
@@ -90,7 +118,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Sách thiếu nhi',
     icon: '🧸',
     bookCount: 28,
-    gradientColor1: const Color(0xFFFFB74D), // Light Orange
+    gradientColor1: const Color(0xFFFFB74D),
     gradientColor2: const Color(0xFFFFA726),
   ),
   CategoryModel(
@@ -98,7 +126,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Nghiên cứu học thuật',
     icon: '🎓',
     bookCount: 15,
-    gradientColor1: const Color(0xFF7986CB), // Indigo Light
+    gradientColor1: const Color(0xFF7986CB),
     gradientColor2: const Color(0xFF5C6BC0),
   ),
   CategoryModel(
@@ -106,7 +134,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Tâm linh - Tôn giáo',
     icon: '🙏',
     bookCount: 38,
-    gradientColor1: const Color(0xFFBA68C8), // Purple Light
+    gradientColor1: const Color(0xFFBA68C8),
     gradientColor2: const Color(0xFF9C27B0),
   ),
   CategoryModel(
@@ -114,7 +142,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Sức khỏe - Dinh dưỡng',
     icon: '🍎',
     bookCount: 52,
-    gradientColor1: const Color(0xFF81C784), // Light Green
+    gradientColor1: const Color(0xFF81C784),
     gradientColor2: const Color(0xFF66BB6A),
   ),
   CategoryModel(
@@ -122,7 +150,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Triết học',
     icon: '🤔',
     bookCount: 29,
-    gradientColor1: const Color(0xFF90A4AE), // Blue Grey Light
+    gradientColor1: const Color(0xFF90A4AE),
     gradientColor2: const Color(0xFF78909C),
   ),
   CategoryModel(
@@ -130,7 +158,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Công nghệ',
     icon: '💻',
     bookCount: 65,
-    gradientColor1: const Color(0xFF64B5F6), // Light Blue
+    gradientColor1: const Color(0xFF64B5F6),
     gradientColor2: const Color(0xFF42A5F5),
   ),
   CategoryModel(
@@ -138,7 +166,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Nghệ thuật - Văn hóa',
     icon: '🎨',
     bookCount: 41,
-    gradientColor1: const Color(0xFF4DB6AC), // Teal
+    gradientColor1: const Color(0xFF4DB6AC),
     gradientColor2: const Color(0xFF26A69A),
   ),
   CategoryModel(
@@ -146,7 +174,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Thể thao - Du lịch',
     icon: '⚽',
     bookCount: 36,
-    gradientColor1: const Color(0xFFFF7043), // Orange Red
+    gradientColor1: const Color(0xFFFF7043),
     gradientColor2: const Color(0xFFFF5722),
   ),
   CategoryModel(
@@ -154,7 +182,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Nấu ăn - Ẩm thực',
     icon: '👨‍🍳',
     bookCount: 24,
-    gradientColor1: const Color(0xFFFFB74D), // Warm Orange
+    gradientColor1: const Color(0xFFFFB74D),
     gradientColor2: const Color(0xFFFFA726),
   ),
   CategoryModel(
@@ -162,7 +190,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Pháp luật - Chính trị',
     icon: '⚖️',
     bookCount: 42,
-    gradientColor1: const Color(0xFF3949AB), // Dark Blue
+    gradientColor1: const Color(0xFF3949AB),
     gradientColor2: const Color(0xFF303F9F),
   ),
   CategoryModel(
@@ -170,7 +198,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Giáo dục - Học tập',
     icon: '📚',
     bookCount: 58,
-    gradientColor1: const Color(0xFF5C6BC0), // Academic Blue
+    gradientColor1: const Color(0xFF5C6BC0),
     gradientColor2: const Color(0xFF3949AB),
   ),
   CategoryModel(
@@ -178,7 +206,7 @@ final List<CategoryModel> sampleCategories = [
     name: 'Hồi ký - Tiểu sử',
     icon: '📝',
     bookCount: 33,
-    gradientColor1: const Color(0xFFA1887F), // Vintage Brown
+    gradientColor1: const Color(0xFFA1887F),
     gradientColor2: const Color(0xFF8D6E63),
   ),
 ];
