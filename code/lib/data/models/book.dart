@@ -38,9 +38,8 @@ final List<BookModel> sampleBooks = [
     id: 'book1',
     title: 'Tuổi 20 - Những Năm Tháng Quyết Định Cuộc Đời Bạn',
     author: 'Ly Nguyễn',
-    coverImageUrl:
-        'assets/images/placeholder_cover.jpg', // Sửa lại đường dẫn này sau
-    categoryId: 'cat4', // Kỹ năng
+    coverImageUrl: 'assets/images/placeholder_cover.jpg',
+    categoryId: 'cat4',
     description:
         'Tuổi 20 không chỉ là thời điểm của những trải nghiệm mới mẻ mà còn là giai đoạn quyết định hình thành nền móng cho tương lai. Cuốn sách này mang đến những lời khuyên thiết thực về việc lựa chọn nghề nghiệp, xây dựng các mối quan hệ ý nghĩa và phát triển bản thân. Tác giả Ly Nguyễn chia sẻ rằng đây chính là thập kỷ vàng để đầu tư vào chính mình, khám phá đam mê và định hình con người bạn muốn trở thành. Những quyết định bạn đưa ra ở độ tuổi này sẽ ảnh hưởng sâu sắc đến toàn bộ cuộc đời sau này.',
     pdfAssetPath: 'assets/pdfs/thep_da_toi_the_day.pdf',
@@ -51,7 +50,7 @@ final List<BookModel> sampleBooks = [
     title: 'Cây Cam Ngọt Của Tôi',
     author: 'Jose Mauro de Vasconcelos',
     coverImageUrl: 'assets/images/book2.png',
-    categoryId: 'cat1', // Văn học kinh điển
+    categoryId: 'cat1',
     description:
         'Zezé là một cậu bé năm tuổi tinh nghịch, thông minh nhưng luôn bị mọi người hiểu lầm. Trong gia đình nghèo khó với những áp lực cuộc sống, cậu tìm thấy niềm an ủi qua những cuộc trò chuyện với cây cam ngọt trong vườn - người bạn duy nhất luôn lắng nghe và chia sẻ. Tác phẩm là một bức tranh chân thực về tuổi thơ đầy vất vả, về sự đau đớn khi trưởng thành sớm, nhưng cũng tràn ngập tình yêu thương và sự kiên cường của tâm hồn trẻ thơ. Đây là câu chuyện lay động trái tim về tình bạn, gia đình và những tổn thương không thể nào quên.',
     pdfAssetPath:
@@ -63,7 +62,7 @@ final List<BookModel> sampleBooks = [
     title: 'Chiến Binh Cầu Vồng',
     author: 'Andrea Hirata',
     coverImageUrl: 'assets/images/book3.png',
-    categoryId: 'cat1', // Văn học kinh điển
+    categoryId: 'cat1',
     description:
         'Trên hòn đảo Belitong nghèo khó của Indonesia, mười đứa trẻ vùng lên chống lại số phận bằng khát vọng học tập. Dù thiếu thốn về mọi mặt, các em vẫn kiên trì đến trường trong căn lớp học tồi tàn sắp sập. Câu chuyện là lời ca ngợi sức mạnh của tri thức, lòng kiên trì và ước mơ vươn tới ánh sáng. Thầy giáo nghèo nhưng tận tâm, những học trò giàu nghị lực và tình bạn trong sáng đã tạo nên một thiên anh hùng ca đầy xúc động. Đây là minh chứng rằng không hoàn cảnh nào có thể dập tắt được khát khao học hỏi và vươn lên của con người.',
     pdfAssetPath: 'assets/pdfs/Chien Binh Cau Vong - Andrea Hirata.pdf',
@@ -74,7 +73,7 @@ final List<BookModel> sampleBooks = [
     title: 'Digital Marketing Cho Doanh Nghiệp Nhỏ',
     author: 'Avery Swartz',
     coverImageUrl: 'assets/images/book4.png',
-    categoryId: 'cat3', // Kinh doanh
+    categoryId: 'cat3',
     description:
         'Trong thời đại số, marketing truyền thống không còn đủ để cạnh tranh. Cuốn sách này cung cấp lộ trình chi tiết giúp doanh nghiệp nhỏ tận dụng sức mạnh của internet để tiếp cận khách hàng. Từ việc xây dựng website, SEO, quảng cáo Google Ads đến marketing trên mạng xã hội, email marketing và phân tích dữ liệu - tất cả được trình bày một cách dễ hiểu với ngân sách phù hợp. Avery Swartz chia sẻ kinh nghiệm thực tế, những chiến lược đã được kiểm chứng và các case study thành công, giúp chủ doanh nghiệp tự tin bước vào thế giới digital marketing.',
     pdfAssetPath:
@@ -86,7 +85,7 @@ final List<BookModel> sampleBooks = [
     title: 'Đồi Gió Hú',
     author: 'Emily Bronte',
     coverImageUrl: 'assets/images/book5.png',
-    categoryId: 'cat1', // Văn học kinh điển
+    categoryId: 'cat1',
     description:
         'Trên vùng đồng hoang Yorkshire hoang vu, câu chuyện tình yêu đầy bi kịch giữa Heathcliff và Catherine đã để lại một di sản đau thương kéo dài hai thế hệ. Tình yêu không thành biến thành hận thù ăn sâu, Heathcliff dành cả đời để trả thù những người đã làm anh đau khổ. Tác phẩm là sự khám phá sâu sắc về những cảm xúc cực đoan của con người - tình yêu, hận thù, ghen tuông và khao khát được đền bù. Emily Bronte đã tạo nên một kiệt tác văn học Gothic đầy ám ảnh, nơi thiên nhiên và tâm hồn con người đan xen trong một bản giao hưởng u ám.',
     pdfAssetPath: 'assets/pdfs/Doi Gio Hu - Emily Bronte.pdf',
@@ -97,7 +96,7 @@ final List<BookModel> sampleBooks = [
     title: 'Gấu Pooh Xinh Xắn',
     author: 'A. A. Milne',
     coverImageUrl: 'assets/images/book6.png',
-    categoryId: 'cat9', // Sách thiếu nhi
+    categoryId: 'cat9',
     description:
         'Bước vào khu rừng Trăm Mẫu kỳ diệu, nơi chú gấu Pooh và những người bạn ngộ nghĩnh sống những cuộc phiêu lưu đáng nhớ. Từ việc đi săn Heffalump, cứu hộ Hổ Tigger bị mắc kẹt, đến những buổi tiệc trà vui vẻ - mỗi câu chuyện đều tràn đầy sự hồn nhiên và những bài học nhẹ nhàng về tình bạn. Christopher Robin và hội bạn thú nhồi bông đã trở thành biểu tượng của tuổi thơ trong sáng. Dù đơn giản nhưng tác phẩm chứa đựng triết lý sâu sắc về sự đơn thuần và hạnh phúc trong những điều nhỏ bé của cuộc sống.',
     pdfAssetPath:
@@ -109,7 +108,7 @@ final List<BookModel> sampleBooks = [
     title: 'Hãy Sống Mạnh Mẽ',
     author: 'Nhiều Tác Giả',
     coverImageUrl: 'assets/images/book7.png',
-    categoryId: 'cat4', // Kỹ năng
+    categoryId: 'cat4',
     description:
         'Cuộc sống không thiếu những thử thách và khó khăn, nhưng điều quan trọng là thái độ chúng ta đối mặt với chúng. Tuyển tập này quy tụ những câu chuyện truyền cảm hứng từ nhiều tác giả, mỗi người chia sẻ hành trình vượt qua ngh逆境 của riêng mình. Từ việc đối mặt với thất bại, vượt qua bệnh tật, đến tái thiết cuộc đời sau những mất mát - tất cả đều mang thông điệp về sức mạnh tinh thần con người. Cuốn sách là nguồn động lực giúp bạn tin vào khả năng của bản thân, học cách đứng dậy sau mỗi lần vấp ngã và sống một cuộc đời đầy nghị lực.',
     pdfAssetPath: 'assets/pdfs/Hay Song Manh Me - Nhieu Tac Gia.pdf',
@@ -120,7 +119,7 @@ final List<BookModel> sampleBooks = [
     title: 'Hoàng Tử Bé',
     author: 'Antoine de Saint Exupery',
     coverImageUrl: 'assets/images/book8.png',
-    categoryId: 'cat1', // Văn học kinh điển
+    categoryId: 'cat1',
     description:
         'Một phi công rơi máy bay giữa sa mạc Sahara bất ngờ gặp hoàng tử bé từ tiểu hành tinh B-612. Qua cuộc gặp gỡ kỳ diệu này, chúng ta được nghe những câu chuyện về hành trình của hoàng tử đến các hành tinh khác nhau, gặp gỡ những con người kỳ lạ. Tác phẩm là lời nhắc nhở đầy thơ mộng về những giá trị đích thực: tình bạn, trách nhiệm, và sự trong sáng của tâm hồn trẻ thơ. Mỗi trang sách đều chứa đựng triết lý sâu sắc về cuộc sống, tình yêu và ý nghĩa của sự tồn tại, được kể qua giọng văn giản dị nhưng đầy cảm động.',
     pdfAssetPath: 'assets/pdfs/Hoang Tu Be - Antoine de Saint Exupery.pdf',
@@ -131,7 +130,7 @@ final List<BookModel> sampleBooks = [
     title: 'Không Gia Đình',
     author: 'Hector Malot',
     coverImageUrl: 'assets/images/book9.png',
-    categoryId: 'cat1', // Văn học kinh điển
+    categoryId: 'cat1',
     description:
         'Rémi, một cậu bé bị bỏ rơi, được người mẹ nuôi nghèo khổ chăm sóc cho đến khi bị bán cho ông già Vitalis - nghệ sĩ hát rong. Cùng đoàn xiếc nhỏ gồm chó và khỉ, Rémi bắt đầu hành trình phiêu bạt khắp nước Pháp, trải qua vô số thử thách đầy gian khổ. Câu chuyện là bản anh hùng ca về lòng dũng cảm, nghị lực và tình người trong hoàn cảnh khắc nghiệt nhất. Mỗi chặng đường mở ra bài học về cuộc sống, về tình bạn và hy vọng. Tác phẩm kinh điển này đã lay động hàng triệu trái tim với thông điệp nhân văn sâu sắc.',
     pdfAssetPath: 'assets/pdfs/Khong Gia Dinh - Hector Malot.pdf',
@@ -142,7 +141,7 @@ final List<BookModel> sampleBooks = [
     title: 'Nhà Giả Kim',
     author: 'Paulo Coelho',
     coverImageUrl: 'assets/images/book10.png',
-    categoryId: 'cat1', // Văn học kinh điển
+    categoryId: 'cat1',
     description:
         'Santiago, chàng chăn cừu trẻ người Tây Ban Nha, từ bỏ cuộc sống bình yên để theo đuổi giấc mơ về kho báu ẩn giấu bên chân kim tự tháp Ai Cập. Hành trình qua sa mạc không chỉ là cuộc tìm kiếm vật chất mà còn là quá trình khám phá bản thân, học hỏi từ thiên nhiên và lắng nghe tiếng nói của trái tim. Gặp gỡ nhà giả kim, Santiago nhận ra rằng kho báu thực sự không nằm ở đích đến mà ở chính cuộc hành trình. Tác phẩm là câu chuyện ngụ ngôn đẹp đẽ về việc theo đuổi ước mơ, về định mệnh cá nhân và sức mạnh của niềm tin.',
     pdfAssetPath: 'assets/pdfs/Nha Gia Kim - Paulo Coelho.pdf',
@@ -153,7 +152,7 @@ final List<BookModel> sampleBooks = [
     title: 'Những Trận Hải Chiến Nổi Tiếng Thế Giới',
     author: 'Nhiều Tác Giả',
     coverImageUrl: 'assets/images/book11.png',
-    categoryId: 'cat7', // Lịch sử
+    categoryId: 'cat7',
     description:
         'Từ trận Salamis cổ đại đến Midway trong Thế chiến II, mỗi trận hải chiến đều là một bước ngoặt lịch sử. Cuốn sách tái hiện những cuộc đối đầu hùng tráng trên biển, nơi chiến lược quân sự, công nghệ và lòng dũng cảm được thử thách đến cùng cực. Qua phân tích chi tiết về bối cảnh, diễn biến và hậu quả, độc giả sẽ hiểu rõ vai trò quyết định của hải quân trong việc định hình số phận các quốc gia. Từ thời đại thuyền buồm đến tàu sân bay hiện đại, đây là bức tranh toàn cảnh về lịch sử chiến tranh hải quân đầy kịch tính và bài học chiến lược sâu sắc.',
     pdfAssetPath:
@@ -165,7 +164,7 @@ final List<BookModel> sampleBooks = [
     title: 'Những Vụ Án Nổi Tiếng Trên Thế Giới',
     author: 'Nhiều Tác Giả',
     coverImageUrl: 'assets/images/book12.png',
-    categoryId: 'cat8', // Trinh thám/Hình sự
+    categoryId: 'cat8',
     description:
         'Bước vào thế giới đen tối của tội phạm học qua những vụ án có thật đầy bí ẩn. Từ Jack the Ripper bí ẩn ở London thế kỷ 19, vụ bắt cóc con trai phi công Lindbergh, đến những vụ án giết người hàng loạt rúng động thế kỷ 20 - mỗi câu chuyện đều được tái hiện chi tiết với hồ sơ điều tra thực tế. Cuốn sách không chỉ kể về tội ác mà còn phân tích tâm lý tội phạm, phương pháp điều tra và quá trình phá án. Đây là tài liệu quý giá cho những ai quan tâm đến tội phạm học, tâm lý học pháp lý và nghệ thuật phá án.',
     pdfAssetPath:
@@ -177,7 +176,7 @@ final List<BookModel> sampleBooks = [
     title: 'Tạp San Nghiên Cứu Văn Sử Địa Tập 13',
     author: 'Nhiều Tác Giả',
     coverImageUrl: 'assets/images/book13.png',
-    categoryId: 'cat10', // Nghiên cứu học thuật
+    categoryId: 'cat10',
     description:
         'Ấn phẩm học thuật quy tụ những nghiên cứu chuyên sâu từ các học giả hàng đầu về văn học, lịch sử và địa lý Việt Nam. Các bài viết được biên soạn công phu, có cơ sở khoa học vững chắc, từ việc phân tích tác phẩm văn học cổ điển, khảo cứu các sự kiện lịch sử quan trọng, đến nghiên cứu địa lý nhân văn các vùng miền. Đây là tài liệu tham khảo quý giá cho sinh viên, nghiên cứu sinh và những người yêu thích khoa học nhân văn. Mỗi bài viết mở ra góc nhìn mới về di sản văn hóa, giúp hiểu sâu hơn về bản sắc dân tộc qua các thời kỳ lịch sử.',
     pdfAssetPath:
@@ -189,7 +188,7 @@ final List<BookModel> sampleBooks = [
     title: 'Ông Già và Biển Cả',
     author: 'Ernest Hemingway',
     coverImageUrl: 'assets/images/book14.png',
-    categoryId: 'cat1', // Văn học kinh điển
+    categoryId: 'cat1',
     description:
         'Santiago, ông lão đánh cá gần tám mươi ngày không bắt được con cá nào, quyết tâm ra khơi xa hơn bao giờ hết. Cuộc chiến ba ngày đêm giữa ông và con cá kiếm khổng lồ là biểu tượng của ý chí không khuất phục con người. Dù cuối cùng chỉ mang về bộ xương cá vì bị cá mập tấn công, Santiago đã chứng minh rằng con người có thể bị tiêu diệt nhưng không thể bị đánh bại. Tác phẩm là bản anh hùng ca về phẩm giá, lòng kiên trì và sự cao quý của tinh thần con người khi đối mặt với số phận, được viết bằng văn phong giản dị nhưng đầy sức mạnh.',
     pdfAssetPath: 'assets/pdfs/Ong Gia va Bien Ca.pdf',

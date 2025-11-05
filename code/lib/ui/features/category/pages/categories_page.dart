@@ -81,7 +81,7 @@ class CategoriesPage extends StatelessWidget {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                '$bookCount ${AppLanguage.isEnglish ? 'books' : 'sách'}',
+                                '$bookCount ${AppLanguage.get('common_books_unit')}',
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: Colors.white.withOpacity(0.9),

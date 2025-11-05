@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
-import '../../../../widgets/book_card.dart';
+import '../../../shared/widgets/book_card.dart';
 import '../../../../data/models/category.dart';
 import '../../../../utils/app_language.dart';
 import '../../category/pages/category_detail_page.dart';
@@ -26,7 +26,9 @@ class HomePage extends StatelessWidget {
                     children: [
                       _buildWelcomeMessage(),
                       _buildFeaturedBooks(context),
+                      const SizedBox(height: 10),
                       _buildCategoriesBrowser(),
+                      const SizedBox(height: 10),
                       _buildDynamicCategorySections(),
                       const SizedBox(height: 20),
                     ],
@@ -132,7 +134,6 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               return BookCard(
                 book: featuredBooks[index],
-                type: CardType.grid,
                 width: 140,
                 heroContext: 'featured',
                 onFavorite: () {
@@ -333,7 +334,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '$bookCount sách',
+                            '$bookCount ${AppLanguage.get('common_books_unit')}',
                             style: TextStyle(
                               fontSize: 10,
                               color: Colors.white.withOpacity(0.9),
@@ -403,7 +404,6 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, index) {
               return BookCard(
                 book: categoryBooks[index],
-                type: CardType.grid,
                 width: 140,
                 heroContext: 'category_${category.id}',
                 onFavorite: () {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
-import '../../../../widgets/book_card.dart';
+import '../../../shared/widgets/book_card.dart';
 import '../../../../utils/app_language.dart';
 
 class FeaturedBooksPage extends StatelessWidget {
@@ -54,7 +54,6 @@ class FeaturedBooksPage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return BookCard(
                           book: featuredBooks[index],
-                          type: CardType.grid,
                           heroContext: 'featured_books',
                           onFavorite: () {
                             print('Favorite: ${featuredBooks[index].title}');

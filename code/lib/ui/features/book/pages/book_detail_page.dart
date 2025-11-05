@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
 import '../../../../services/favorites_manager.dart';
-import '../../../../widgets/book_card.dart';
+import '../../../shared/widgets/book_card.dart';
 import 'pdf_reader_page.dart';
+import '../../../../utils/app_language.dart';
 
 class BookDetailPage extends StatefulWidget {
   final BookModel book;
@@ -79,15 +80,6 @@ class _BookDetailPageState extends State<BookDetailPage> {
           onPressed: () {},
         ),
       ],
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF1976D2), Color(0xFF1976D2)],
-          ),
-        ),
-      ),
     );
   }
 
@@ -204,8 +196,8 @@ class _BookDetailPageState extends State<BookDetailPage> {
                   SnackBar(
                     content: Text(
                       isFavorite
-                          ? 'Đã thêm "${widget.book.title}" vào yêu thích'
-                          : 'Đã xóa "${widget.book.title}" khỏi yêu thích',
+                          ? '${AppLanguage.get('book_added_to_favorites')} "${widget.book.title}" ${AppLanguage.get('book_to_favorites')}'
+                          : '${AppLanguage.get('book_removed_from_favorites')} "${widget.book.title}" ${AppLanguage.get('book_from_favorites')}',
                     ),
                     duration: const Duration(seconds: 1),
                   ),
@@ -247,14 +239,14 @@ class _BookDetailPageState extends State<BookDetailPage> {
                   borderRadius: BorderRadius.circular(28),
                 ),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.menu_book, color: Colors.white),
-                  SizedBox(width: 8),
+                  const Icon(Icons.menu_book, color: Colors.white),
+                  const SizedBox(width: 8),
                   Text(
-                    'Bắt đầu đọc',
-                    style: TextStyle(
+                    AppLanguage.get('book_start_reading'),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -313,19 +305,17 @@ class _BookDetailPageState extends State<BookDetailPage> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Chưa có đánh giá',
+                  AppLanguage.get('book_no_rating'),
                   style: TextStyle(fontSize: 12, color: Colors.grey[500]),
                 ),
               ],
             ),
           ),
-
-          // Category
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'Danh mục',
+                AppLanguage.get('book_category'),
                 style: TextStyle(fontSize: 12, color: Colors.grey[500]),
               ),
               const SizedBox(height: 4),
@@ -375,9 +365,9 @@ class _BookDetailPageState extends State<BookDetailPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Giới thiệu nội dung',
-            style: TextStyle(
+          Text(
+            AppLanguage.get('book_intro'),
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
@@ -387,7 +377,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
           Text(
             widget.book.description.isNotEmpty
                 ? widget.book.description
-                : 'Chưa có mô tả cho cuốn sách này.',
+                : AppLanguage.get('book_no_description'),
             style: TextStyle(
               fontSize: 14,
               color: Colors.grey[700],
@@ -404,7 +394,9 @@ class _BookDetailPageState extends State<BookDetailPage> {
                 });
               },
               child: Text(
-                isDescriptionExpanded ? 'Thu gọn ↑' : 'Xem thêm ↓',
+                isDescriptionExpanded
+                    ? AppLanguage.get('book_collapse')
+                    : AppLanguage.get('book_expand'),
                 style: const TextStyle(
                   color: Color(0xFF1976D2),
                   fontWeight: FontWeight.w600,
@@ -434,9 +426,9 @@ class _BookDetailPageState extends State<BookDetailPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Đánh giá',
-            style: TextStyle(
+          Text(
+            AppLanguage.get('book_reviews'),
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
@@ -453,7 +445,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  'Chưa có đánh giá nào',
+                  AppLanguage.get('book_no_reviews'),
                   style: TextStyle(fontSize: 16, color: Colors.grey[500]),
                 ),
               ],
@@ -481,11 +473,11 @@ class _BookDetailPageState extends State<BookDetailPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           child: Text(
-            'Ebook tương tự',
-            style: TextStyle(
+            AppLanguage.get('book_related'),
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
@@ -501,10 +493,8 @@ class _BookDetailPageState extends State<BookDetailPage> {
             itemBuilder: (context, index) {
               return BookCard(
                 book: relatedBooks[index],
-                type: CardType.grid,
                 width: 140,
                 heroContext: 'related',
-                showCategory: false,
                 onTap: () {
                   Navigator.pushReplacement(
                     context,

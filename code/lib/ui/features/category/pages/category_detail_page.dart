@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
-import '../../../../widgets/book_card.dart';
+import '../../../shared/widgets/book_card.dart';
 import '../../../../utils/app_language.dart';
 
 class CategoryDetailPage extends StatelessWidget {
@@ -70,7 +70,6 @@ class CategoryDetailPage extends StatelessWidget {
                             itemBuilder: (context, index) {
                               return BookCard(
                                 book: categoryBooks[index],
-                                type: CardType.grid,
                                 heroContext: 'category_detail_${category.id}',
                                 onFavorite: () {
                                   print(

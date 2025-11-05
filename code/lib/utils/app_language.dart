@@ -67,6 +67,9 @@ class AppLanguage {
     'discover_all_books': 'Tất cả sách',
     'discover_books_count': 'cuốn sách',
 
+    // Common
+    'common_books_unit': 'sách',
+
     // Library Page
     'library_title': 'Thư Viện',
     'library_favorites': 'Yêu thích',
@@ -142,6 +145,39 @@ class AppLanguage {
     'book_read_now': 'Đọc ngay',
     'book_added_favorites': 'Đã thêm vào yêu thích',
     'book_removed_favorites': 'Đã xóa khỏi yêu thích',
+    'book_start_reading': 'Bắt đầu đọc',
+    'book_added_to_favorites': 'Đã thêm',
+    'book_removed_from_favorites': 'Đã xóa',
+    'book_to_favorites': 'vào yêu thích',
+    'book_from_favorites': 'khỏi yêu thích',
+    'book_no_rating': 'Chưa có đánh giá',
+    'book_category': 'Danh mục',
+    'book_intro': 'Giới thiệu nội dung',
+    'book_no_description': 'Chưa có mô tả cho cuốn sách này.',
+    'book_expand': 'Xem thêm ↓',
+    'book_collapse': 'Thu gọn ↑',
+    'book_reviews': 'Đánh giá',
+    'book_no_reviews': 'Chưa có đánh giá nào',
+    'book_related': 'Ebook tương tự',
+
+    // Discover Page - Additional
+    'discover_search_placeholder':
+        'Tìm kiếm sách hoặc chọn danh mục để khám phá',
+    'discover_no_results': 'Không tìm thấy sách nào',
+
+    // PDF Reader
+    'pdf_page': 'Trang',
+    'pdf_bookmark_removed': 'Đã xóa bookmark',
+    'pdf_bookmark_added': 'Đã đánh dấu trang',
+    'pdf_no_pdf': 'Không có file PDF để đọc',
+    'pdf_add_file': 'Vui lòng thêm file PDF vào assets',
+    'pdf_loading': 'Đang tải file PDF...',
+    'pdf_load_error': 'Không thể tải file PDF',
+
+    // Library - Remove messages
+    'library_removed_favorite': 'Đã xóa',
+    'library_from_favorite': 'khỏi yêu thích',
+    'library_removed_bookmark': 'Đã xóa bookmark',
   };
 
   static const Map<String, String> en = {
@@ -208,6 +244,9 @@ class AppLanguage {
     'discover_search_hint': 'Search books...',
     'discover_all_books': 'All Books',
     'discover_books_count': 'books',
+
+    // Common
+    'common_books_unit': 'books',
 
     // Library Page
     'library_title': 'Library',
@@ -284,6 +323,39 @@ class AppLanguage {
     'book_read_now': 'Read now',
     'book_added_favorites': 'Added to favorites',
     'book_removed_favorites': 'Removed from favorites',
+    'book_start_reading': 'Start Reading',
+    'book_added_to_favorites': 'Added',
+    'book_removed_from_favorites': 'Removed',
+    'book_to_favorites': 'to favorites',
+    'book_from_favorites': 'from favorites',
+    'book_no_rating': 'No ratings yet',
+    'book_category': 'Category',
+    'book_intro': 'Description',
+    'book_no_description': 'No description available for this book.',
+    'book_expand': 'Read more ↓',
+    'book_collapse': 'Show less ↑',
+    'book_reviews': 'Reviews',
+    'book_no_reviews': 'No reviews yet',
+    'book_related': 'Similar Books',
+
+    // Discover Page - Additional
+    'discover_search_placeholder':
+        'Search for books or select a category to explore',
+    'discover_no_results': 'No books found',
+
+    // PDF Reader
+    'pdf_page': 'Page',
+    'pdf_bookmark_removed': 'Bookmark removed',
+    'pdf_bookmark_added': 'Page bookmarked',
+    'pdf_no_pdf': 'No PDF file available',
+    'pdf_add_file': 'Please add PDF file to assets',
+    'pdf_loading': 'Loading PDF file...',
+    'pdf_load_error': 'Could not load PDF file',
+
+    // Library - Remove messages
+    'library_removed_favorite': 'Removed',
+    'library_from_favorite': 'from favorites',
+    'library_removed_bookmark': 'Bookmark removed',
   };
 
   static String get(String key) {

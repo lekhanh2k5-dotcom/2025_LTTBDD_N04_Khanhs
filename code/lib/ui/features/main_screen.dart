@@ -72,73 +72,57 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _currentIndex,
-            selectedItemColor: const Color(0xFF1976D2),
-            unselectedItemColor: Colors.grey.shade400,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            selectedFontSize: 12,
-            unselectedFontSize: 11,
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.menu_book,
-                  color: _currentIndex == 0
-                      ? const Color(0xFF42A5F5)
-                      : Colors.grey.shade400,
-                ),
-                label: AppLanguage.get('nav_home'),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          selectedItemColor: const Color(0xFF1976D2),
+          unselectedItemColor: Colors.grey.shade400,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          selectedFontSize: 12,
+          unselectedFontSize: 11,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.menu_book,
+                color: _currentIndex == 0 ? const Color(0xFF42A5F5) : null,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.explore,
-                  color: _currentIndex == 1
-                      ? const Color(0xFF26A69A)
-                      : Colors.grey.shade400,
-                ),
-                label: AppLanguage.get('nav_discover'),
+              label: AppLanguage.get('nav_home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.explore,
+                color: _currentIndex == 1 ? const Color(0xFF26A69A) : null,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.library_books,
-                  color: _currentIndex == 2
-                      ? const Color(0xFF1E88E5)
-                      : Colors.grey.shade400,
-                ),
-                label: AppLanguage.get('nav_library'),
+              label: AppLanguage.get('nav_discover'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.library_books,
+                color: _currentIndex == 2 ? const Color(0xFF1E88E5) : null,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.emoji_events,
-                  color: _currentIndex == 3
-                      ? const Color(0xFFFF9800)
-                      : Colors.grey.shade400,
-                ),
-                label: AppLanguage.get('nav_challenge'),
+              label: AppLanguage.get('nav_library'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.emoji_events,
+                color: _currentIndex == 3 ? const Color(0xFFFF9800) : null,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.account_circle,
-                  color: _currentIndex == 4
-                      ? const Color(0xFF7E57C2)
-                      : Colors.grey.shade400,
-                ),
-                label: AppLanguage.get('nav_profile'),
+              label: AppLanguage.get('nav_challenge'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.account_circle,
+                color: _currentIndex == 4 ? const Color(0xFF7E57C2) : null,
               ),
-            ],
-          ),
+              label: AppLanguage.get('nav_profile'),
+            ),
+          ],
         ),
       ),
     );

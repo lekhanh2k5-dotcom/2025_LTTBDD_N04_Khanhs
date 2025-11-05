@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import '../../../../data/models/book.dart';
 import '../../../../services/bookmarks_manager.dart';
+import '../../../../utils/app_language.dart';
 
 class PdfReaderPage extends StatefulWidget {
   final BookModel book;
@@ -76,7 +77,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
           ),
           if (_totalPages > 0)
             Text(
-              'Trang $_currentPageNumber/$_totalPages',
+              '${AppLanguage.get('pdf_page')} $_currentPageNumber/$_totalPages',
               style: const TextStyle(color: Colors.white70, fontSize: 12),
             ),
         ],
@@ -104,16 +105,18 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
             if (_bookmarksManager.hasBookmark(widget.book.id)) {
               _bookmarksManager.removeBookmark(widget.book.id);
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Đã xóa bookmark'),
-                  duration: Duration(seconds: 2),
+                SnackBar(
+                  content: Text(AppLanguage.get('pdf_bookmark_removed')),
+                  duration: const Duration(seconds: 2),
                 ),
               );
             } else {
               _bookmarksManager.addBookmark(widget.book.id, _currentPageNumber);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text('Đã đánh dấu trang $_currentPageNumber'),
+                  content: Text(
+                    '${AppLanguage.get('pdf_bookmark_added')} $_currentPageNumber',
+                  ),
                   duration: const Duration(seconds: 2),
                 ),
               );
@@ -126,30 +129,30 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
   }
 
   Widget _buildPdfViewer() {
-    // Kiểm tra nếu có file PDF
     if (widget.book.pdfAssetPath.isEmpty) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.picture_as_pdf_outlined, size: 64, color: Colors.grey),
-            SizedBox(height: 16),
-            Text(
-              'Không có file PDF để đọc',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+            const Icon(
+              Icons.picture_as_pdf_outlined,
+              size: 64,
+              color: Colors.grey,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 16),
             Text(
-              'Vui lòng thêm file PDF vào assets',
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+              AppLanguage.get('pdf_no_pdf'),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              AppLanguage.get('pdf_add_file'),
+              style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
           ],
         ),
       );
     }
-
-    // Debug: In ra đường dẫn PDF để kiểm tra
-    print('Đang tải PDF: ${widget.book.pdfAssetPath}');
 
     return Center(
       child: ConstrainedBox(
@@ -182,7 +185,9 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
                 });
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('Không thể tải file PDF: ${details.error}'),
+                    content: Text(
+                      '${AppLanguage.get('pdf_load_error')}: ${details.error}',
+                    ),
                     backgroundColor: Colors.red,
                     duration: const Duration(seconds: 5),
                   ),
@@ -192,19 +197,19 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
             if (_isLoading)
               Container(
                 color: Colors.white,
-                child: const Center(
+                child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircularProgressIndicator(
+                      const CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           Color(0xFF43A047),
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Text(
-                        'Đang tải file PDF...',
-                        style: TextStyle(
+                        AppLanguage.get('pdf_loading'),
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Color(0xFF43A047),
                         ),

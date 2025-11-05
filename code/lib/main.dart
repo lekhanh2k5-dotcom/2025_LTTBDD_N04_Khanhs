@@ -13,12 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BookReader App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
       home: const SplashPage(),
     );
   }
 }
-
-

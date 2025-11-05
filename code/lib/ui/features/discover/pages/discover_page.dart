@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
-import '../../../../widgets/book_card.dart';
+import '../../../shared/widgets/book_card.dart';
 import '../../../../utils/app_language.dart';
 
 class DiscoverPage extends StatefulWidget {
@@ -319,7 +319,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
             Icon(Icons.search, size: 80, color: Colors.grey[300]),
             const SizedBox(height: 16),
             Text(
-              'Tìm kiếm sách hoặc chọn danh mục để khám phá',
+              AppLanguage.get('discover_search_placeholder'),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.grey[500]),
             ),
@@ -336,7 +336,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
             Icon(Icons.search_off, size: 80, color: Colors.grey[300]),
             const SizedBox(height: 16),
             Text(
-              'Không tìm thấy sách nào',
+              AppLanguage.get('discover_no_results'),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.grey[500]),
             ),
@@ -375,7 +375,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 itemBuilder: (context, index) {
                   return BookCard(
                     book: books[index],
-                    type: CardType.grid,
                     heroContext: 'discover',
                     onFavorite: () {
                       print('Favorite: ${books[index].title}');

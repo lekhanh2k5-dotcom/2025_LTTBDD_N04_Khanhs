@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../services/favorites_manager.dart';
 import '../../../../services/bookmarks_manager.dart';
-import '../../../../widgets/book_card.dart';
+import '../../../shared/widgets/book_card.dart';
 import '../../../../utils/app_language.dart';
 import '../../book/pages/pdf_reader_page.dart';
 
@@ -192,7 +192,6 @@ class _LibraryPageState extends State<LibraryPage>
             final book = _favoriteBooks[index];
             return BookCard(
               book: book,
-              type: CardType.grid,
               width: null,
               heroContext: 'library_favorite',
               onFavorite: () {
@@ -201,7 +200,9 @@ class _LibraryPageState extends State<LibraryPage>
                 setState(() {});
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('Đã xóa "$bookTitle" khỏi yêu thích'),
+                    content: Text(
+                      '${AppLanguage.get('library_removed_favorite')} "$bookTitle" ${AppLanguage.get('library_from_favorite')}',
+                    ),
                     duration: const Duration(seconds: 2),
                   ),
                 );
@@ -327,7 +328,7 @@ class _LibraryPageState extends State<LibraryPage>
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              'Trang ${bookmark.pageNumber}',
+                              '${AppLanguage.get('pdf_page')} ${bookmark.pageNumber}',
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Color(0xFF1E88E5),
@@ -349,7 +350,9 @@ class _LibraryPageState extends State<LibraryPage>
                     setState(() {});
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Đã xóa bookmark "$bookTitle"'),
+                        content: Text(
+                          '${AppLanguage.get('library_removed_bookmark')} "$bookTitle"',
+                        ),
                         duration: const Duration(seconds: 2),
                       ),
                     );

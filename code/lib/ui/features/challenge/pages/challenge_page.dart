@@ -1,123 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../../utils/app_language.dart';
-
-class ChallengeModel {
-  final String id;
-  final String title;
-  final String description;
-  final IconData icon;
-  final int current;
-  final int target;
-  final String reward;
-
-  ChallengeModel({
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.icon,
-    required this.current,
-    required this.target,
-    required this.reward,
-  });
-
-  double get progress => current / target;
-  bool get isCompleted => current >= target;
-}
-
-class BadgeModel {
-  final String id;
-  final String name;
-  final IconData icon;
-  final bool unlocked;
-
-  BadgeModel({
-    required this.id,
-    required this.name,
-    required this.icon,
-    required this.unlocked,
-  });
-}
+import '../../../../data/models/challenge.dart';
+import '../../../../data/models/badge.dart';
 
 class ChallengePage extends StatelessWidget {
   const ChallengePage({super.key});
-
-  List<ChallengeModel> get _challenges => [
-    ChallengeModel(
-      id: 'c1',
-      title: AppLanguage.get('challenge_read_5_books'),
-      description: AppLanguage.get('challenge_read_5_books_desc'),
-      icon: Icons.auto_stories,
-      current: 3,
-      target: 5,
-      reward: '🏆 ${AppLanguage.get('badge_reader')}',
-    ),
-    ChallengeModel(
-      id: 'c2',
-      title: AppLanguage.get('challenge_streak_7'),
-      description: AppLanguage.get('challenge_streak_7_desc'),
-      icon: Icons.local_fire_department,
-      current: 4,
-      target: 7,
-      reward: '🔥 ${AppLanguage.get('badge_persistent')}',
-    ),
-    ChallengeModel(
-      id: 'c3',
-      title: AppLanguage.get('challenge_explore_genres'),
-      description: AppLanguage.get('challenge_explore_genres_desc'),
-      icon: Icons.explore,
-      current: 2,
-      target: 3,
-      reward: '🌟 ${AppLanguage.get('badge_explorer')}',
-    ),
-    ChallengeModel(
-      id: 'c4',
-      title: AppLanguage.get('challenge_write_reviews'),
-      description: AppLanguage.get('challenge_write_reviews_desc'),
-      icon: Icons.rate_review,
-      current: 5,
-      target: 10,
-      reward: '✍️ ${AppLanguage.get('badge_critic')}',
-    ),
-  ];
-
-  List<BadgeModel> get _badges => [
-    BadgeModel(
-      id: 'b1',
-      name: AppLanguage.isEnglish ? 'Beginner' : 'Người mới',
-      icon: Icons.star,
-      unlocked: true,
-    ),
-    BadgeModel(
-      id: 'b2',
-      name: AppLanguage.get('badge_reader'),
-      icon: Icons.auto_stories,
-      unlocked: true,
-    ),
-    BadgeModel(
-      id: 'b3',
-      name: AppLanguage.get('badge_persistent'),
-      icon: Icons.local_fire_department,
-      unlocked: false,
-    ),
-    BadgeModel(
-      id: 'b4',
-      name: AppLanguage.get('badge_explorer'),
-      icon: Icons.explore,
-      unlocked: false,
-    ),
-    BadgeModel(
-      id: 'b5',
-      name: AppLanguage.get('badge_bookworm'),
-      icon: Icons.workspace_premium,
-      unlocked: false,
-    ),
-    BadgeModel(
-      id: 'b6',
-      name: AppLanguage.get('badge_critic'),
-      icon: Icons.rate_review,
-      unlocked: false,
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -307,9 +194,9 @@ class ChallengePage extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      itemCount: _challenges.length,
+      itemCount: sampleChallenges.length,
       itemBuilder: (context, index) {
-        return _buildChallengeCard(_challenges[index]);
+        return _buildChallengeCard(sampleChallenges[index]);
       },
     );
   }
@@ -438,9 +325,9 @@ class ChallengePage extends StatelessWidget {
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
         ),
-        itemCount: _badges.length,
+        itemCount: sampleBadges.length,
         itemBuilder: (context, index) {
-          return _buildBadgeItem(_badges[index]);
+          return _buildBadgeItem(sampleBadges[index]);
         },
       ),
     );
