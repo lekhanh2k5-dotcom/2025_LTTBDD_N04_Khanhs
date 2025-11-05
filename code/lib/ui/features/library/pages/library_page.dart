@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
+import '../../../../data/models/bookmark.dart';
 import '../../../../services/favorites_manager.dart';
 import '../../../../services/bookmarks_manager.dart';
 import '../../../shared/widgets/book_card.dart';
@@ -194,6 +195,7 @@ class _LibraryPageState extends State<LibraryPage>
               book: book,
               width: null,
               heroContext: 'library_favorite',
+              showFavoriteButton: true,
               onFavorite: () {
                 final bookTitle = book.title;
                 _favoritesManager.removeFavorite(book.id);

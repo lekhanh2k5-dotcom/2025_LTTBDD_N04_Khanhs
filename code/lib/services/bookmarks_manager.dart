@@ -1,9 +1,4 @@
-class BookmarkModel {
-  final String bookId;
-  final int pageNumber;
-
-  BookmarkModel({required this.bookId, required this.pageNumber});
-}
+import '../data/models/bookmark.dart';
 
 class BookmarksManager {
   static final BookmarksManager _instance = BookmarksManager._internal();

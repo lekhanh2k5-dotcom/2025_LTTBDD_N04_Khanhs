@@ -8,6 +8,7 @@ class BookCard extends StatelessWidget {
   final VoidCallback? onFavorite;
   final double? width;
   final String? heroContext;
+  final bool showFavoriteButton;
 
   const BookCard({
     Key? key,
@@ -16,6 +17,7 @@ class BookCard extends StatelessWidget {
     this.onFavorite,
     this.width,
     this.heroContext,
+    this.showFavoriteButton = false,
   }) : super(key: key);
 
   @override
@@ -58,7 +60,7 @@ class BookCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (onFavorite != null)
+                if (showFavoriteButton && onFavorite != null)
                   Positioned(
                     top: 6,
                     right: 6,
@@ -67,13 +69,20 @@ class BookCard extends StatelessWidget {
                       child: Container(
                         padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.9),
+                          color: Colors.white.withOpacity(0.95),
                           shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
                         ),
                         child: const Icon(
-                          Icons.favorite_border,
-                          size: 16,
-                          color: Color(0xFF8D6E63),
+                          Icons.favorite,
+                          size: 18,
+                          color: Colors.red,
                         ),
                       ),
                     ),
