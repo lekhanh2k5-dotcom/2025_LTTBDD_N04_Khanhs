@@ -15,10 +15,10 @@ class BadgeModel {
   });
 }
 
-final List<BadgeModel> sampleBadges = [
+List<BadgeModel> get sampleBadges => [
   BadgeModel(
     id: 'b1',
-    name: AppLanguage.isEnglish ? 'Beginner' : 'Người mới',
+    name: AppLanguage.get('badge_beginner'),
     icon: Icons.star,
     unlocked: true,
   ),

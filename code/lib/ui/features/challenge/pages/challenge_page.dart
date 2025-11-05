@@ -167,7 +167,7 @@ class ChallengePage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            '60% ${AppLanguage.get('challenge_completed').toLowerCase()} - ${AppLanguage.isEnglish ? 'Keep going! 💪' : 'Cố lên! 💪'}',
+            '60% ${AppLanguage.get('challenge_completed').toLowerCase()} - ${AppLanguage.get('challenge_keep_going')}',
             style: const TextStyle(color: Colors.white70, fontSize: 14),
           ),
         ],

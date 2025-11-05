@@ -24,7 +24,7 @@ class ChallengeModel {
   bool get isCompleted => current >= target;
 }
 
-final List<ChallengeModel> sampleChallenges = [
+List<ChallengeModel> get sampleChallenges => [
   ChallengeModel(
     id: 'c1',
     title: AppLanguage.get('challenge_read_5_books'),

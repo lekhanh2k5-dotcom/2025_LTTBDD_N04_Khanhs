@@ -96,6 +96,7 @@ class AppLanguage {
     'challenge_reading_time': 'Thời gian đọc',
     'challenge_hours': 'giờ',
     'challenge_unlock': 'Mở khóa',
+    'challenge_keep_going': 'Cố lên! 💪',
 
     // Challenge Items
     'challenge_read_5_books': 'Đọc 5 sách trong tháng',
@@ -108,6 +109,7 @@ class AppLanguage {
     'challenge_write_reviews_desc': 'Chia sẻ cảm nhận về sách đã đọc',
 
     // Badges
+    'badge_beginner': 'Người mới',
     'badge_reader': 'Độc giả',
     'badge_persistent': 'Kiên trì',
     'badge_explorer': 'Khám phá',
@@ -274,6 +276,7 @@ class AppLanguage {
     'challenge_reading_time': 'Reading time',
     'challenge_hours': 'hours',
     'challenge_unlock': 'Unlock',
+    'challenge_keep_going': 'Keep going! 💪',
 
     // Challenge Items
     'challenge_read_5_books': 'Read 5 books this month',
@@ -286,6 +289,7 @@ class AppLanguage {
     'challenge_write_reviews_desc': 'Share your thoughts on books',
 
     // Badges
+    'badge_beginner': 'Beginner',
     'badge_reader': 'Reader',
     'badge_persistent': 'Persistent',
     'badge_explorer': 'Explorer',
