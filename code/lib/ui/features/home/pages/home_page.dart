@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../shared/widgets/book_card.dart';
 import '../../../../data/models/category.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 import '../../category/pages/category_detail_page.dart';
 import '../../category/pages/categories_page.dart';
 import '../../book/pages/featured_books_page.dart';

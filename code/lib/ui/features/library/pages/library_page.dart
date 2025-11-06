@@ -4,7 +4,7 @@ import '../../../../data/models/bookmark.dart';
 import '../../../../services/favorites_manager.dart';
 import '../../../../services/bookmarks_manager.dart';
 import '../../../shared/widgets/book_card.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 import '../../book/pages/pdf_reader_page.dart';
 
 class LibraryPage extends StatefulWidget {

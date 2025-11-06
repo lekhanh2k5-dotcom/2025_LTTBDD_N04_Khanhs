@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../data/models/book.dart';
 import '../../../../data/models/category.dart';
 import '../../../shared/widgets/book_card.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 
 class DiscoverPage extends StatefulWidget {
   const DiscoverPage({super.key});

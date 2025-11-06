@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget _buildHeader() {
     return Container(
       height: 80,
-      color: const Color(0xFF7E57C2),
+      color: const Color(0xFF6366F1),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -79,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFF7E57C2), Color(0xFF9575CD)],
+          colors: [Color(0xFF6366F1), Color(0xFF818CF8)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),

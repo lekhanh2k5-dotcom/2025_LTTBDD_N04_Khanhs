@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../data/models/category.dart';
 import '../../../../data/models/book.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 import 'category_detail_page.dart';
 
 class CategoriesPage extends StatelessWidget {

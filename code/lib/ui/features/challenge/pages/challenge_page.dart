@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 import '../../../../data/models/challenge.dart';
 import '../../../../data/models/badge.dart';
 
@@ -43,7 +43,7 @@ class ChallengePage extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       height: 80,
-      color: const Color(0xFFFF9800),
+      color: const Color(0xFF10B981),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -72,7 +72,7 @@ class ChallengePage extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFFFF9800), Color(0xFFFFA726)],
+          colors: [Color(0xFF10B981), Color(0xFF34D399)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -227,14 +227,14 @@ class ChallengePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: challenge.isCompleted
                         ? Colors.green.withOpacity(0.1)
-                        : const Color(0xFFFF9800).withOpacity(0.1),
+                        : const Color(0xFF10B981).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
                     challenge.icon,
                     color: challenge.isCompleted
                         ? Colors.green
-                        : const Color(0xFFFF9800),
+                        : const Color(0xFF10B981),
                     size: 24,
                   ),
                 ),
@@ -280,7 +280,7 @@ class ChallengePage extends StatelessWidget {
                       valueColor: AlwaysStoppedAnimation<Color>(
                         challenge.isCompleted
                             ? const Color(0xFF43A047)
-                            : const Color(0xFFFF9800),
+                            : const Color(0xFF10B981),
                       ),
                     ),
                   ),
@@ -355,7 +355,7 @@ class ChallengePage extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: badge.unlocked
-                  ? const Color(0xFFFFB300)
+                  ? const Color(0xFF10B981)
                   : Colors.grey[300],
             ),
             child: Icon(

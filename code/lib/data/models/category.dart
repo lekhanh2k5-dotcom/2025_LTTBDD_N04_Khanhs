@@ -1,6 +1,5 @@
-// lib/models/category_model.dart
 import 'package:flutter/material.dart';
-import '../../utils/app_language.dart';
+import '../../services/language_service.dart';
 
 class CategoryModel {
   final String id;

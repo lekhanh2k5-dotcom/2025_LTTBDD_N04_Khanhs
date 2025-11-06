@@ -4,7 +4,7 @@ import 'discover/pages/discover_page.dart';
 import 'library/pages/library_page.dart';
 import 'challenge/pages/challenge_page.dart';
 import 'profile/pages/profile_page.dart';
-import '../../../utils/app_language.dart';
+import '../../../services/language_service.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -111,14 +111,14 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.emoji_events,
-                color: _currentIndex == 3 ? const Color(0xFFFF9800) : null,
+                color: _currentIndex == 3 ? const Color(0xFF10B981) : null,
               ),
               label: AppLanguage.get('nav_challenge'),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.account_circle,
-                color: _currentIndex == 4 ? const Color(0xFF7E57C2) : null,
+                color: _currentIndex == 4 ? const Color(0xFF6366F1) : null,
               ),
               label: AppLanguage.get('nav_profile'),
             ),

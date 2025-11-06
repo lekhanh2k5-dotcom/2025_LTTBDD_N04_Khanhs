@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../utils/app_language.dart';
+import '../../services/language_service.dart';
 
 class BadgeModel {
   final String id;

@@ -4,7 +4,7 @@ import '../../../../data/models/category.dart';
 import '../../../../services/favorites_manager.dart';
 import '../../../shared/widgets/book_card.dart';
 import 'pdf_reader_page.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 
 class BookDetailPage extends StatefulWidget {
   final BookModel book;
@@ -77,7 +77,14 @@ class _BookDetailPageState extends State<BookDetailPage> {
       actions: [
         IconButton(
           icon: const Icon(Icons.share, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(AppLanguage.get('msg_feature_developing')),
+                duration: const Duration(seconds: 2),
+              ),
+            );
+          },
         ),
       ],
     );

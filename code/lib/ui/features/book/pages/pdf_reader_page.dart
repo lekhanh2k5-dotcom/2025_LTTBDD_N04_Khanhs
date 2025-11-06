@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import '../../../../data/models/book.dart';
 import '../../../../services/bookmarks_manager.dart';
-import '../../../../utils/app_language.dart';
+import '../../../../services/language_service.dart';
 
 class PdfReaderPage extends StatefulWidget {
   final BookModel book;
