@@ -55,7 +55,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
-      backgroundColor: const Color(0xFF43A047),
+      backgroundColor: const Color(0xFF2196F3),
       elevation: 0,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -203,7 +203,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
                     children: [
                       const CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
-                          Color(0xFF43A047),
+                          Color(0xFF2196F3),
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -211,7 +211,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
                         AppLanguage.get('pdf_loading'),
                         style: const TextStyle(
                           fontSize: 16,
-                          color: Color(0xFF43A047),
+                          color: Color(0xFF2196F3),
                         ),
                       ),
                     ],
@@ -250,7 +250,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
                 ? () => _pdfViewerController.previousPage()
                 : null,
             color: _currentPageNumber > 1
-                ? const Color(0xFF43A047)
+                ? const Color(0xFF2196F3)
                 : Colors.grey,
           ),
 
@@ -258,14 +258,14 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
           IconButton(
             icon: const Icon(Icons.zoom_out, size: 24),
             onPressed: () => _pdfViewerController.zoomLevel -= 0.25,
-            color: const Color(0xFF43A047),
+            color: const Color(0xFF2196F3),
           ),
 
           // Page info
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: const Color(0xFF43A047).withOpacity(0.1),
+              color: const Color(0xFF2196F3).withOpacity(0.1),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
@@ -273,7 +273,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF43A047),
+                color: Color(0xFF2196F3),
               ),
             ),
           ),
@@ -282,7 +282,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
           IconButton(
             icon: const Icon(Icons.zoom_in, size: 24),
             onPressed: () => _pdfViewerController.zoomLevel += 0.25,
-            color: const Color(0xFF43A047),
+            color: const Color(0xFF2196F3),
           ),
 
           // Next page
@@ -292,7 +292,7 @@ class _PdfReaderPageState extends State<PdfReaderPage> {
                 ? () => _pdfViewerController.nextPage()
                 : null,
             color: _currentPageNumber < _totalPages
-                ? const Color(0xFF43A047)
+                ? const Color(0xFF2196F3)
                 : Colors.grey,
           ),
         ],

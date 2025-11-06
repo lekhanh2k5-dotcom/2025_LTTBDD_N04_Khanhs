@@ -36,13 +36,13 @@ class BookModel {
 final List<BookModel> sampleBooks = [
   BookModel(
     id: 'book1',
-    title: 'Tuổi 20 - Những Năm Tháng Quyết Định Cuộc Đời Bạn',
-    author: 'Ly Nguyễn',
-    coverImageUrl: 'assets/images/placeholder_cover.jpg',
-    categoryId: 'cat4',
+    title: 'Tết Ở Làng Địa Ngục',
+    author: 'Thảo Trang',
+    coverImageUrl: 'assets/images/book1.png',
+    categoryId: 'cat8',
     description:
-        'Tuổi 20 không chỉ là thời điểm của những trải nghiệm mới mẻ mà còn là giai đoạn quyết định hình thành nền móng cho tương lai. Cuốn sách này mang đến những lời khuyên thiết thực về việc lựa chọn nghề nghiệp, xây dựng các mối quan hệ ý nghĩa và phát triển bản thân. Tác giả Ly Nguyễn chia sẻ rằng đây chính là thập kỷ vàng để đầu tư vào chính mình, khám phá đam mê và định hình con người bạn muốn trở thành. Những quyết định bạn đưa ra ở độ tuổi này sẽ ảnh hưởng sâu sắc đến toàn bộ cuộc đời sau này.',
-    pdfAssetPath: 'assets/pdfs/thep_da_toi_the_day.pdf',
+        'Một vụ án bí ẩn xảy ra vào dịp Tết tại làng Địa Ngục - nơi có nhiều truyền thuyết kinh dị. Thảo Trang dẫn dắt người đọc vào cuộc điều tra đầy gay cấn, nơi ranh giới giữa hiện thực và huyền bí dần trở nên mờ nhạt. Từng manh mối được hé lộ qua lời kể của dân làng, những phong tục kỳ lạ và bí mật gia tộc được chôn giấu từ lâu. Cuốn tiểu thuyết trinh thám kết hợp yếu tố văn hóa dân gian Việt Nam tạo nên một tác phẩm độc đáo và hấp dẫn.',
+    pdfAssetPath: 'assets/pdfs/Tet o lang Dia Nguc - Thao Trang.pdf',
     isFeatured: true,
   ),
   BookModel(
@@ -413,13 +413,207 @@ final List<BookModel> sampleBooks = [
   ),
   BookModel(
     id: 'book34',
-    title: 'Mua Do - Chu Lai',
+    title: 'Mưa Đỏ',
     author: 'Chu Lai',
     coverImageUrl: 'assets/images/book34.png',
     categoryId: 'cat5',
     description:
         'Qua ngòi bút sắc sảo và đầy cảm xúc, Chu Lai khắc họa bức tranh sinh động về cuộc sống thường nhật của những con người bình thường trong xã hội Việt Nam đương đại. Mỗi nhân vật là một mảnh ghép của hiện thực - từ người lao động nghèo khổ, trí thức thất chí, đến những tâm hồn cô đơn giữa phố thị. Tác giả không phán xét mà chỉ quan sát và tái hiện với sự thấu cảm sâu sắc những niềm vui, nỗi buồn, hy vọng và thất vọng của con người. "Mùa Đỏ" là tác phẩm chứng tỏ tài năng văn chương của Chu Lai trong việc nắm bắt và diễn đạt tâm tư tình cảm tinh tế của đời sống.',
     pdfAssetPath: 'assets/pdfs/Mua Do - Chu Lai.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book35',
+    title: 'Lợi Thế Cạnh Tranh',
+    author: 'Michael E. Porter',
+    coverImageUrl: 'assets/images/book35.png',
+    categoryId: 'cat3',
+    description:
+        'Michael E. Porter, cha đẻ của chiến lược cạnh tranh hiện đại, trình bày framework phân tích ngành với 5 lực lượng cạnh tranh. Cuốn sách giúp doanh nghiệp hiểu rõ động lực thị trường, vị thế cạnh tranh và cách xây dựng lợi thế bền vững. Porter phân tích các chiến lược dẫn đầu về chi phí, khác biệt hóa và tập trung vào thị trường ngách. Đây là tác phẩm kinh điển không thể thiếu cho bất kỳ ai làm chiến lược kinh doanh.',
+    pdfAssetPath: 'assets/pdfs/Loi The Canh tranh - Michael E. Porter.pdf',
+    isFeatured: false,
+  ),
+  BookModel(
+    id: 'book36',
+    title: 'Những Kẻ Xuất Chúng',
+    author: 'Malcolm Gladwell',
+    coverImageUrl: 'assets/images/book36.png',
+    categoryId: 'cat3',
+    description:
+        'Malcolm Gladwell khám phá bí mật đằng sau thành công phi thường. Quy tắc 10,000 giờ, lợi thế văn hóa, may mắn về thời điểm sinh - tất cả đều đóng vai trò quan trọng. Cuốn sách phá vỡ thần thoại về tài năng bẩm sinh, chỉ ra rằng thành công là kết quả của nhiều yếu tố kết hợp. Từ Bill Gates đến The Beatles, mỗi câu chuyện đều mang lại góc nhìn mới về con đường đến đỉnh cao.',
+    pdfAssetPath: 'assets/pdfs/Nhung Ke Xuat Chung - MalColm Gladwell.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book37',
+    title: 'Xây Dựng Để Trường Tồn',
+    author: 'Jim Collins & Jerry I. Porras',
+    coverImageUrl: 'assets/images/book37.png',
+    categoryId: 'cat3',
+    description:
+        'Nghiên cứu sâu về 18 công ty vĩ đại tồn tại lâu dài, Jim Collins và Jerry Porras tiết lộ những nguyên tắc giúp doanh nghiệp bền vững qua thời gian. Từ việc xây dựng văn hóa cốt lõi, đặt mục tiêu lớn táo bạo (BHAG), đến sự cân bằng giữa bảo tồn và đổi mới - cuốn sách cung cấp blueprint cho tổ chức muốn trường tồn. Đây là kim chỉ nam cho lãnh đạo doanh nghiệp.',
+    pdfAssetPath:
+        'assets/pdfs/Xay Dung De Truong Ton - Jim Collins & Jerry I. Porras.pdf',
+    isFeatured: false,
+  ),
+  BookModel(
+    id: 'book38',
+    title: 'Nghĩ Giàu & Làm Giàu',
+    author: 'Napoleon Hill',
+    coverImageUrl: 'assets/images/book38.png',
+    categoryId: 'cat3',
+    description:
+        'Dựa trên nghiên cứu 20 năm với hơn 500 triệu phú, Napoleon Hill tổng kết 13 nguyên tắc tạo nên thành công và giàu có. Từ sức mạnh của ý nghĩ, đam mê mãnh liệt, đến tư duy nhóm trí tuệ - cuốn sách hé lộ triết lý làm giàu không chỉ về vật chất mà cả tinh thần. Đây là kinh thánh phát triển bản thân được hàng triệu người đọc trên toàn thế giới.',
+    pdfAssetPath:
+        'assets/pdfs/Nghi Giau Va Lam Giau Microsoft Edge PDF Document.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book39',
+    title: 'Elon Musk - Người Đặc Biệt Hàng Đầu',
+    author: 'Walter Isaacson',
+    coverImageUrl: 'assets/images/book39.png',
+    categoryId: 'cat3',
+    description:
+        'Tiểu sử toàn diện về một trong những doanh nhân táo bạo nhất thế kỷ 21. Từ PayPal, Tesla, SpaceX đến Neuralink - Elon Musk đã liên tục phá vỡ giới hạn và định hình tương lai nhân loại. Walter Isaacson tiết lộ tư duy đổi mới, phong cách lãnh đạo khắc nghiệt và tầm nhìn xa khỏi Trái Đất của Musk. Cuốn sách truyền cảm hứng cho những ai dám mơ lớn và hành động quyết liệt.',
+    pdfAssetPath:
+        'assets/pdfs/Elon Musk modified 06-11-2025 6-49 (EL FINANCE.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book40',
+    title: 'Cơ Phiếu Thường Lợi Nhuận Phi Thường',
+    author: 'Philip A. Fisher',
+    coverImageUrl: 'assets/images/book40.png',
+    categoryId: 'cat3',
+    description:
+        'Philip Fisher, nhà đầu tư huyền thoại, chia sẻ triết lý đầu tư tăng trưởng dài hạn. 15 điểm cần xem xét khi chọn cổ phiếu, từ chất lượng quản lý, lợi thế cạnh tranh, đến tiềm năng tăng trưởng. Fisher nhấn mạnh tầm quan trọng của nghiên cứu sâu, nắm giữ lâu dài và đầu tư vào doanh nghiệp xuất sắc. Đây là kinh điển đầu tư giá trị được Warren Buffett ca ngợi.',
+    pdfAssetPath:
+        'assets/pdfs/Co Phieu Thuong Loi Nhuan Phi Thuong - Philip A. Fisher.pdf',
+    isFeatured: false,
+  ),
+  BookModel(
+    id: 'book41',
+    title: 'Tư Duy Nhanh Và Chậm',
+    author: 'Daniel Kahneman',
+    coverImageUrl: 'assets/images/book41.png',
+    categoryId: 'cat3',
+    description:
+        'Giải Nobel Kinh tế Daniel Kahneman tiết lộ hai hệ thống tư duy: Hệ thống 1 (nhanh, trực giác) và Hệ thống 2 (chậm, lý trí). Cuốn sách phân tích các thiên kiến nhận thức, lỗi tư duy và cách chúng ảnh hưởng đến quyết định kinh doanh và cuộc sống. Từ hiệu ứng neo, đánh giá quá mức, đến sợ mất mát - Kahneman giúp bạn nhận ra và khắc phục những sai lầm tư duy phổ biến.',
+    pdfAssetPath: 'assets/pdfs/Tu duy nhanh va cham - DANIEL KAHNEMAN.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book42',
+    title: 'Chiến Lược Đại Dương Xanh',
+    author: 'W. Chan Kim & Renee Mauborgne',
+    coverImageUrl: 'assets/images/book42.png',
+    categoryId: 'cat3',
+    description:
+        'Thay vì cạnh tranh trong "đại dương đỏ" đầy máu tanh, tại sao không tạo ra "đại dương xanh" - không gian thị trường mới không có đối thủ? Kim và Mauborgne trình bày framework đổi mới giá trị, giúp doanh nghiệp thoát khỏi cuộc chiến giá cả để tạo ra giá trị đột phá. Từ Cirque du Soleil đến Nintendo Wii, các case study chứng minh sức mạnh của chiến lược này. Đây là cẩm nang cho đổi mới đột phá.',
+    pdfAssetPath:
+        'assets/pdfs/Chien Luoc Dai Duong Xanh - W. Chan Kim & Renee Mauborgne.pdf',
+    isFeatured: false,
+  ),
+  BookModel(
+    id: 'book43',
+    title: 'Vùng Trời',
+    author: 'Tác giả Việt Nam',
+    coverImageUrl: 'assets/images/book43.png',
+    categoryId: 'cat5',
+    description:
+        'Một tác phẩm văn học Việt Nam đương đại với giọng văn trong trẻo, kể về cuộc sống vùng quê với những con người chất phác, những mảnh đời bình dị nhưng đầy cảm xúc. Qua từng trang sách, độc giả được đắm chìm vào không gian yên bình của làng quê Việt Nam, nơi tình người còn đậm đà và thiên nhiên hòa quyện cùng cuộc sống. Tác phẩm là lời ca ngợi vẻ đẹp thuần khiết của quê hương và những giá trị văn hóa truyền thống đáng trân trọng.',
+    pdfAssetPath: 'assets/pdfs/13322-vung-troi-thuviensach.vn.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book44',
+    title: 'Sông',
+    author: 'Nguyễn Ngọc Tư',
+    coverImageUrl: 'assets/images/book44.png',
+    categoryId: 'cat5',
+    description:
+        'Nguyễn Ngọc Tư, một trong những giọng văn xuất sắc của miền Nam Việt Nam, khắc họa bức tranh sinh động về cuộc sống vùng sông nước. Con sông không chỉ là bối cảnh địa lý mà còn là nhân vật chính, chứng kiến bao câu chuyện đời thường của người dân miệt vườn. Qua ngòi bút mộc mạc nhưng sâu lắng, tác giả tái hiện những niềm vui, nỗi buồn, hy vọng và khát khao của con người miền Tây. Đây là tác phẩm văn học chứa đựng hồn quê đậm đà và tình người ấm áp.',
+    pdfAssetPath: 'assets/pdfs/Song - Nguyen Ngoc Tu.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book45',
+    title: 'Vợ Chồng A Phủ',
+    author: 'Tô Hoài',
+    coverImageUrl: 'assets/images/book45.png',
+    categoryId: 'cat5',
+    description:
+        'Tác phẩm kinh điển của nhà văn Tô Hoài kể về cuộc sống của đôi vợ chồng người dân tộc Thái ở Tây Bắc Việt Nam. Câu chuyện về A Phủ và vợ là Tú - một tình yêu đẹp như mơ giữa núi rừng hùng vĩ, về cuộc sống lao động cần cù và những phong tục tập quán độc đáo của đồng bào dân tộc. Qua giọng văn trong sáng, giàu chất thơ, Tô Hoài đã vẽ nên bức tranh sống động về con người và thiên nhiên Tây Bắc, là tác phẩm văn học thiếu nhi và cũng là tài liệu văn hóa quý giá về các dân tộc Việt Nam.',
+    pdfAssetPath: 'assets/pdfs/Vo Chong A Phu - To Hoai.pdf',
+    isFeatured: false,
+  ),
+  BookModel(
+    id: 'book46',
+    title: 'Lịch Sử Tư Tưởng Trung Quốc',
+    author: 'Anne Cheng',
+    coverImageUrl: 'assets/images/book46.png',
+    categoryId: 'cat7',
+    description:
+        'Anne Cheng, chuyên gia hàng đầu về triết học và văn hóa Trung Quốc, trình bày toàn cảnh lịch sử tư tưởng Trung Hoa từ thời cổ đại đến hiện đại. Từ Khổng Tử, Lão Tử, Mặc Tử đến các trường phái Phật giáo, Tân Nho học - cuốn sách phân tích sâu sắc những quan niệm về con người, xã hội, đạo đức và vũ trụ. Đây là tác phẩm học thuật quan trọng giúp hiểu rõ nền tảng tư tưởng hình thành nên văn minh phương Đông.',
+    pdfAssetPath: 'assets/pdfs/Lich su tu tuong Trung Quoc - Anne Cheng.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book47',
+    title: 'Sapiens - Lược Sử Loài Người',
+    author: 'Yuval Noah Harari',
+    coverImageUrl: 'assets/images/book47.png',
+    categoryId: 'cat7',
+    description:
+        'Từ loài vượn tầm thường ở Đông Phi đến chủ nhân hành tinh, Sapiens là hành trình 70,000 năm đầy kỳ diệu của loài người. Yuval Noah Harari giải thích tại sao Homo sapiens vượt qua các loài người khác, vai trò của cách mạng nhận thức, nông nghiệp và khoa học. Cuốn sách đặt ra những câu hỏi triết học sâu sắc về bản chất con người, ý nghĩa hạnh phúc và tương lai của loài người trong kỷ nguyên công nghệ. Đây là kiệt tác lịch sử được đọc rộng rãi nhất thế kỷ 21.',
+    pdfAssetPath:
+        'assets/pdfs/Sapiens_ Luoc Su Loai Nguoi - Yuval Noah Harari.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book48',
+    title: 'Lịch Sử Trung Quốc 5000 Năm - Tập 1',
+    author: 'Lâm Hán Đạt & Tào Dư Chương',
+    coverImageUrl: 'assets/images/book48.png',
+    categoryId: 'cat7',
+    description:
+        'Bộ sách lịch sử Trung Quốc toàn diện và dễ đọc nhất, tập 1 bắt đầu từ thời thượng cổ với các vị vua huyền thoại, qua các triều đại Hạ, Thương, Chu đến thời Xuân Thu Chiến Quốc. Tác giả không chỉ kể lại các sự kiện lịch sử mà còn phân tích bối cảnh chính trị, kinh tế, văn hóa, và những nhân vật lịch sử nổi tiếng. Đây là tài liệu quý giá cho những ai muốn hiểu sâu về lịch sử và văn minh Trung Hoa.',
+    pdfAssetPath:
+        'assets/pdfs/Lich Su Trung Quoc 5000 Nam Tap 1 - Lam Han Dat & Tao Du Chuong.pdf',
+    isFeatured: false,
+  ),
+  BookModel(
+    id: 'book50',
+    title: 'Việt Nam Sử Lược',
+    author: 'Trần Trọng Kim',
+    coverImageUrl: 'assets/images/book50.png',
+    categoryId: 'cat7',
+    description:
+        'Tác phẩm kinh điển của sử học Việt Nam do danh sĩ Trần Trọng Kim biên soạn. Việt Nam Sử Lược tóm tắt lịch sử dân tộc từ thời Hồng Bàng đến đầu thế kỷ 20, với lối viết giản dị nhưng chính xác, khách quan. Cuốn sách đã trở thành tài liệu giảng dạy và nghiên cứu lịch sử quan trọng, được nhiều thế hệ người Việt tin đọc. Đây là nền tảng kiến thức lịch sử cho bất kỳ ai muốn tìm hiểu về quá khứ hào hùng của dân tộc.',
+    pdfAssetPath: 'assets/pdfs/Viet Nam Su Luoc - Tran Trong Kim.pdf',
+    isFeatured: true,
+  ),
+  BookModel(
+    id: 'book51',
+    title: 'Nam Chí Lược',
+    author: 'Lê Tắc',
+    coverImageUrl: 'assets/images/book51.png',
+    categoryId: 'cat7',
+    description:
+        'Nam Chí Lược là bộ sử chép đầu tiên của người Việt về đất nước Việt Nam, được Lê Tắc viết vào thế kỷ 13. Tác phẩm ghi chép về địa lý, phong tục, tập quán, các triều đại, những sự kiện lịch sử quan trọng của Đại Việt thời Lý - Trần. Đây là tư liệu lịch sử vô giá, là minh chứng cho ý thức tự chủ và lòng tự hào dân tộc của người Việt từ thời trung đại. Cuốn sách có giá trị cao về mặt học thuật và văn hóa.',
+    pdfAssetPath: 'assets/pdfs/Nam Chi Luoc, An - Le Tac.pdf',
+    isFeatured: false,
+  ),
+  BookModel(
+    id: 'book49',
+    title: 'Bóng Ma Trong Nhà Hát',
+    author: 'Gaston Leroux',
+    coverImageUrl: 'assets/images/book49.png',
+    categoryId: 'cat8',
+    description:
+        'Tác phẩm kinh điển của văn học trinh thám Pháp, kể về bí ẩn ma quái tại Nhà hát Opera Paris. Một giọng ca thiên thần bí ẩn, những vụ tai nạn kỳ lạ liên tiếp xảy ra, và bóng ma ẩn mình trong hầm sâu của nhà hát. Gaston Leroux khéo léo kết hợp yếu tố trinh thám, kinh dị và tình yêu lãng mạn tạo nên một câu chuyện ly kỳ đầy hấp dẫn. Cuốn sách đã trở thành nguồn cảm hứng cho vô số tác phẩm điện ảnh và sân khấu trên khắp thế giới.',
+    pdfAssetPath: 'assets/pdfs/Bong Ma Trong Nha Hat - Gaston Leroux.pdf',
     isFeatured: true,
   ),
 ];
