@@ -21,7 +21,7 @@
 - **MSSV:** 23010546
 - **Lớp:** Lập trình thiết bị di động - 1 - 1 - 25 (N04)
 - **Giảng viên:** Nguyễn Xuân Quế
-- **Học kỳ:** 1 - Năm học 2024-2025
+- **Học kỳ:** 1 - Năm học 2025-2026
 - **Trường:** Đại học Phenikaa
 
 ---
