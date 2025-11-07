@@ -185,8 +185,8 @@ flutter build ios --release
 - **Tổng số dòng code:** ~15,000 lines
 - **Số lượng màn hình:** 9 screens
 - **Số lượng widgets:** 50+ custom widgets
-- **Số danh mục:** 9 categories
-- **Số sách mẫu:** 52 books
+- **Số danh mục:** 20 categories
+- **Số sách mẫu:** 50 books
 - **Ngôn ngữ hỗ trợ:** 2 (Việt, Anh)
 - **Số file PDF:** 40+ files
 
