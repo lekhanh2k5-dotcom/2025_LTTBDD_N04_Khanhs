@@ -37,7 +37,7 @@
 - ✅ **Fullscreen Mode:** Chế độ toàn màn hình tập trung
 
 ### 🗂️ Tổ Chức Nội Dung
-- ✅ **9 Danh mục:** Văn học, Kinh doanh, Lịch sử, Trinh thám, Thiếu nhi...
+- ✅ **20 Danh mục:** Văn học, Kinh doanh, Lịch sử, Trinh thám, Thiếu nhi...
 - ✅ **Tìm kiếm:** Tìm sách theo tên, tác giả
 - ✅ **Lọc nhanh:** Lọc sách theo danh mục
 - ✅ **Danh sách yêu thích:** Lưu sách yêu thích
